@@ -1,0 +1,19 @@
+:root {
+  --scroll-track: #0000004d;
+  --scroll-bg: #a9a9a9;
+  --scroll-outline: #708090;
+}
+
+/* scroll */
+::-webkit-scrollbar {
+  width: 0.3em;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px var(--scroll-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-bg);
+  outline: 1px solid var(--scroll-outline);
+}

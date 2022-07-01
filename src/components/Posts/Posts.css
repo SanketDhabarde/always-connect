@@ -1,0 +1,5 @@
+.posts-feed {
+  width: 35rem;
+  height: 90vh;
+  overflow-y: scroll;
+}
