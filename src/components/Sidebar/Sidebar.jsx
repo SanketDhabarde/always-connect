@@ -20,7 +20,7 @@ function Sidebar() {
         <Nav
           link="/profile"
           linkName="Profile"
-          icon={<i class="fas fa-user"></i>}
+          icon={<i className="fas fa-user"></i>}
         />
       </div>
       <div className="new-post-btn my-2">
