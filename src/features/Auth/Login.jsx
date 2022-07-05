@@ -13,7 +13,7 @@ function Login() {
   const [togglePassword, setTogglePassword] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const { user, authError } = useSelector((state) => state.auth);
+  const { authError } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   useTitle("Login");
 
@@ -26,8 +26,8 @@ function Login() {
   };
 
   const setDummyUserHandler = () => {
-    setUsername("adarshbalika");
-    setPassword("adarshBalika123");
+    setUsername("johndoe");
+    setPassword("johnDoe123");
   };
 
   return (
