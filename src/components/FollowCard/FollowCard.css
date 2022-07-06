@@ -1,0 +1,16 @@
+.follow-suggestion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.btn-underline {
+  text-decoration: underline;
+  color: inherit;
+}
