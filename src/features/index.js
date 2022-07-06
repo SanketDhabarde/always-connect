@@ -1,3 +1,5 @@
 export * from "./Auth/authSlice";
+export * from "./Posts/postsSlice";
 export { default as Login } from "./Auth/Login";
 export { default as Signup } from "./Auth/Signup";
+export { default as Post } from "./Posts/Post";
