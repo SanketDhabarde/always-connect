@@ -10,11 +10,11 @@ function FollowCard() {
       <div className="follow-suggestions">
         <div className="follow-suggestion p-1">
           <div className="profile-info">
-            <div class="avatar avatar-sm m-1 profile-avatar">
+            <div className="avatar avatar-sm m-1 profile-avatar">
               <img
                 src="https://i.pravatar.cc/500"
                 alt="avatar"
-                class="img-responsive img-round"
+                className="img-responsive img-round"
               />
             </div>
             <div className="profile-name">
@@ -23,16 +23,18 @@ function FollowCard() {
             </div>
           </div>
           <div className="follow-btn">
-            <Link to="#" className="btn-underline">Follow + </Link>
+            <Link to="#" className="btn-underline">
+              Follow +{" "}
+            </Link>
           </div>
         </div>
         <div className="follow-suggestion p-1">
           <div className="profile-info">
-            <div class="avatar avatar-sm m-1 profile-avatar">
+            <div className="avatar avatar-sm m-1 profile-avatar">
               <img
                 src="https://i.pravatar.cc/500"
                 alt="avatar"
-                class="img-responsive img-round"
+                className="img-responsive img-round"
               />
             </div>
             <div className="profile-name">
@@ -41,7 +43,9 @@ function FollowCard() {
             </div>
           </div>
           <div className="follow-btn">
-            <Link to="#" className="btn-underline">Follow + </Link>
+            <Link to="#" className="btn-underline">
+              Follow +{" "}
+            </Link>
           </div>
         </div>
       </div>
