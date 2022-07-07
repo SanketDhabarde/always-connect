@@ -3,7 +3,7 @@ import { createPost } from "../../features";
 import { useDispatch, useSelector } from "react-redux";
 import "./NewPost.css";
 
-function NewPost() {
+function NewPost({ toggleModal }) {
   const [postTxt, setPostTxt] = useState("");
   const { posts } = useSelector((state) => state.posts);
   const dispatch = useDispatch();
@@ -13,13 +13,15 @@ function NewPost() {
       const postData = {
         content: postTxt,
       };
-      const res = await dispatch(createPost({postData}));
-      setPostTxt("");
-      console.log(res);
+      try {
+        const res = await dispatch(createPost({ postData }));
+        setPostTxt("");
+        toggleModal();
+      } catch (e) {
+        console.log(e);
+      }
     }
   };
-
-  // console.log(posts);
 
   return (
     <div className="card posts-new p-1">
@@ -48,7 +50,11 @@ function NewPost() {
             </div>
           </div>
           <div className="create-posts">
-            <button className="btn btn-primary" onClick={createPostHandler}>
+            <button
+              className="btn btn-primary"
+              onClick={createPostHandler}
+              disabled={postTxt === ""}
+            >
               Post
             </button>
           </div>

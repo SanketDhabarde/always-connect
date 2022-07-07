@@ -4,7 +4,7 @@ import "./FollowCard.css";
 
 function FollowCard() {
   return (
-    <div className="card sidebar">
+    <div className="card sidebar card-suggestion">
       <h4 className="p-1 text-center">Suggestions to follow</h4>
       <hr className="separator" />
       <div className="follow-suggestions">
