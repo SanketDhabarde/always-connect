@@ -3,23 +3,27 @@ import { createPost } from "../../features";
 import { useDispatch } from "react-redux";
 import Picker from "emoji-picker-react";
 import "./NewPost.css";
-import { useOnClickOutside, useToggle } from "../../hooks";
+import { useOnClickOutside } from "../../hooks";
+import TextareaAutosize from 'react-textarea-autosize';
 
 function NewPost({ toggleModal }) {
   const [postTxt, setPostTxt] = useState("");
   const [isEmojiPickerVisible, setIsEmojiPickerVisible] = useState(false);
+  const [postImage, setPostImage] = useState(null);
   const dispatch = useDispatch();
   const emojiPickerRef = useRef(null);
   useOnClickOutside(emojiPickerRef, () => setIsEmojiPickerVisible(false));
 
   const createPostHandler = async () => {
-    if (postTxt) {
+    if (postTxt || postImage) {
       const postData = {
         content: postTxt,
+        postImage,
       };
       try {
         const res = await dispatch(createPost({ postData }));
         setPostTxt("");
+        setPostImage(null);
         if (res) {
           toggleModal();
         }
@@ -38,6 +42,29 @@ function NewPost({ toggleModal }) {
     setIsEmojiPickerVisible((prevState) => !prevState);
   };
 
+  const handlePostUpload = async (event) => {
+    const selectedImage = event.target.files[0];
+    const formData = new FormData();
+    formData.append("file", selectedImage);
+    formData.append(
+      "upload_preset",
+      process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
+    );
+    try {
+      const response = await fetch(
+        `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINATY_NAME}/image/upload`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      const { url } = await response.json();
+      setPostImage(url);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <div className="card posts-new p-1">
@@ -49,22 +76,34 @@ function NewPost({ toggleModal }) {
           />
         </div>
         <div className="posts-new-input">
-          <textarea
-            type="text"
+          <TextareaAutosize
+            minRows={3}
             className="input-textbox p-1 input-post"
             value={postTxt}
             onChange={(event) => setPostTxt(event.target.value)}
-            placeholder="Enter something..."
-          ></textarea>
+            placeholder="What's happening?"
+          />
+          {postImage && <img src={postImage} alt="post" className="img-responsive"/>}
           <div className="posts-new-options">
             <div className="posts-new-option">
-              <div className="icon post-icon center-div">
-                <i className="fas fa-image"></i>
+              <div className="image-picker">
+                <label className="center-div">
+                  <div className="icon post-icon center-div" title="Images">
+                    <i className="fas fa-image"></i>
+                  </div>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    disabled={postImage}
+                    onChange={handlePostUpload}
+                  />
+                </label>
               </div>
               <div className="emoji-picker" ref={emojiPickerRef}>
                 <div
                   className="icon post-icon center-div"
                   onClick={toggleEmojiPicker}
+                  title="Emojis"
                 >
                   <i className="fas fa-smile"></i>
                 </div>
@@ -75,7 +114,7 @@ function NewPost({ toggleModal }) {
               <button
                 className="btn btn-primary"
                 onClick={createPostHandler}
-                disabled={postTxt === ""}
+                disabled={postTxt === "" && !postImage}
               >
                 Post
               </button>

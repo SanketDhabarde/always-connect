@@ -2,7 +2,7 @@ import React from "react";
 import "./Post.css";
 
 function Post({ post }) {
-  const { content, username, firstName, lastName } = post;
+  const { content, username, firstName, lastName, postImage } = post;
   return (
     <div className="card post-card my-2 p-1">
       <div className="post-card-left">
@@ -22,6 +22,11 @@ function Post({ post }) {
         <div className="post-content my-1">
           <p>{content}</p>
         </div>
+        {postImage && (
+          <div className="post-image">
+            <img src={postImage} alt="post" className="img-responsive" />
+          </div>
+        )}
         <div className="post-options my-2">
           <div className="icon center-div">
             <i className="far fa-heart"></i>

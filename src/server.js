@@ -116,6 +116,11 @@ export function makeServer({ environment = "development" } = {}) {
         "/users/unfollow/:followUserId/",
         unfollowUserHandler.bind(this)
       );
+
+      this.passthrough(
+        `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINATY_NAME}/image/upload`,
+        ["post"]
+      );
     },
   });
 }
