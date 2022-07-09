@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
+  position: relative;
 }
 
 .posts-new-input {
@@ -21,6 +22,7 @@
 
 .posts-new-option {
   display: flex;
+  gap: 0.5em;
 }
 
 .icon {
@@ -37,4 +39,9 @@ textarea {
 .btn:disabled {
   cursor: not-allowed;
   opacity: 0.5;
+}
+
+aside.emoji-picker-react{
+  position: absolute;
+  top: 100%;
 }
