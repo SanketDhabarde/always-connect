@@ -54,7 +54,7 @@ input[type="file"] {
   height: 0;
 }
 
-aside.emoji-picker-react {
+.emoji-picker > aside.emoji-picker-react {
   position: absolute;
   top: 100%;
 }
