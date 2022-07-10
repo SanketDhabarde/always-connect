@@ -9,8 +9,8 @@ function Posts() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPosts());
-  }, []);
-  console.log(posts);
+  }, [dispatch]);
+ 
   return (
     <div className="card posts-feed p-3">
       <NewPost />
