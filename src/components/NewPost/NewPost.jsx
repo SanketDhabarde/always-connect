@@ -4,10 +4,11 @@ import { useDispatch } from "react-redux";
 import Picker from "emoji-picker-react";
 import "./NewPost.css";
 import { useOnClickOutside } from "../../hooks";
-import TextareaAutosize from 'react-textarea-autosize';
+import TextareaAutosize from "react-textarea-autosize";
 
 function NewPost({ toggleModal }) {
   const [postTxt, setPostTxt] = useState("");
+  const [postTxtCount, setPostTxtCount] = useState(250);
   const [isEmojiPickerVisible, setIsEmojiPickerVisible] = useState(false);
   const [postImage, setPostImage] = useState(null);
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ function NewPost({ toggleModal }) {
         const res = await dispatch(createPost({ postData }));
         setPostTxt("");
         setPostImage(null);
+        setPostTxtCount(250);
         if (res) {
           toggleModal();
         }
@@ -36,6 +38,7 @@ function NewPost({ toggleModal }) {
   const onEmojiClick = (_, emojiObject) => {
     const selectedEmoji = emojiObject.emoji;
     setPostTxt((prevText) => prevText + selectedEmoji);
+    setPostTxtCount(250 - (postTxt.length + selectedEmoji.length));
   };
 
   const toggleEmojiPicker = () => {
@@ -65,6 +68,12 @@ function NewPost({ toggleModal }) {
     }
   };
 
+  const postTextHandler = (event) => {
+    const changePostText = event.target.value;
+    setPostTxt(changePostText);
+    setPostTxtCount(250 - changePostText.length);
+  };
+
   return (
     <>
       <div className="card posts-new p-1">
@@ -80,16 +89,35 @@ function NewPost({ toggleModal }) {
             minRows={3}
             className="input-textbox p-1 input-post"
             value={postTxt}
-            onChange={(event) => setPostTxt(event.target.value)}
+            onChange={postTextHandler}
             placeholder="What's happening?"
           />
-          {postImage && <img src={postImage} alt="post" className="img-responsive"/>}
+          {postImage && (
+            <div className="post-image">
+              <img src={postImage} alt="post" className="img-responsive" />
+              <span
+                className="icon remove-post-image"
+                onClick={() => setPostImage(null)}
+              >
+                <i className="fas fa-times"></i>
+              </span>
+            </div>
+          )}
           <div className="posts-new-options">
             <div className="posts-new-option">
               <div className="image-picker">
                 <label className="center-div">
-                  <div className="icon post-icon center-div" title="Images">
-                    <i className="fas fa-image"></i>
+                  <div
+                    className={`icon post-icon center-div  ${
+                      postImage && "disabled-element"
+                    }`}
+                    title="Images"
+                  >
+                    <i
+                      className={`fas fa-image ${
+                        postImage && "disabled-element"
+                      }`}
+                    ></i>
                   </div>
                   <input
                     type="file"
@@ -111,10 +139,17 @@ function NewPost({ toggleModal }) {
               </div>
             </div>
             <div className="create-posts">
+              <span
+                className={`post-txt-count${
+                  postTxtCount < 0 ? "-error" : postTxtCount < 10 && "-warning"
+                }`}
+              >
+                {postTxtCount}
+              </span>
               <button
                 className="btn btn-primary"
                 onClick={createPostHandler}
-                disabled={postTxt === "" && !postImage}
+                disabled={(postTxt === "" && !postImage) || postTxtCount < 0}
               >
                 Post
               </button>

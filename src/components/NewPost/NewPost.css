@@ -29,7 +29,7 @@
   width: 2rem;
   height: 2rem;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 .input-post.input-textbox {
@@ -43,12 +43,13 @@ textarea {
 }
 
 .btn:disabled,
-input:disabled {
+input:disabled,
+.disabled-element {
   cursor: not-allowed;
   opacity: 0.5;
 }
 
-input[type="file"]{
+input[type="file"] {
   width: 0;
   height: 0;
 }
@@ -56,4 +57,22 @@ input[type="file"]{
 aside.emoji-picker-react {
   position: absolute;
   top: 100%;
+}
+
+.post-image {
+  position: relative;
+}
+
+.remove-post-image {
+  position: absolute;
+  top: 2%;
+  right: 10%;
+}
+
+.post-txt-count-error {
+  color: var(--danger);
+}
+
+.post-txt-count-warning {
+  color: var(--warning);
 }
