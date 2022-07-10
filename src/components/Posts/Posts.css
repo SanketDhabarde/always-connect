@@ -3,3 +3,7 @@
   height: 90vh;
   overflow-y: scroll;
 }
+
+.posts-feed.card {
+  border: none;
+}
