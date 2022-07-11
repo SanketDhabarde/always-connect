@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import { useSelector } from "react-redux";
+import { Modal, NewPost } from "../../components";
+import { useOnClickOutside, useToggle } from "../../hooks";
 import "./Post.css";
 
 function Post({ post }) {
   const { content, username, firstName, lastName, postImage } = post;
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
+  const [isEditPostModal, toggleEditPostModal] = useToggle();
+  const menuRef = useRef(null);
+  useOnClickOutside(menuRef, () => setIsMenuVisible(false));
+  const { user } = useSelector((state) => state.auth);
+
+  const toggleMenuOptions = () => {
+    setIsMenuVisible((prevState) => !prevState);
+  };
+
   return (
     <div className="card post-card my-2 p-1">
       <div className="post-card-left">
@@ -16,8 +29,35 @@ function Post({ post }) {
       </div>
       <div className="post-card-right">
         <div className="post-header">
-          <h4>{`${firstName} ${lastName}`}</h4>{" "}
-          <small className="text-gray">@{username}</small>
+          <div className="user-name">
+            <h4>{`${firstName} ${lastName}`}</h4>{" "}
+            <small className="text-gray">@{username}</small>
+          </div>
+          {username === user.username && (
+            <div className="post-menu" ref={menuRef}>
+              <div className="icon center-div" onClick={toggleMenuOptions}>
+                <i className="fas fa-ellipsis-v"></i>
+              </div>
+              {isMenuVisible && (
+                <div className="card post-menu-options p-1">
+                  <div
+                    className="post-menu-option p-1"
+                    onClick={toggleEditPostModal}
+                  >
+                    Edit
+                  </div>
+                </div>
+              )}
+              {isEditPostModal && (
+                <Modal toggleModal={toggleEditPostModal}>
+                  <NewPost
+                    toggleModal={toggleEditPostModal}
+                    singlePost={post}
+                  />
+                </Modal>
+              )}
+            </div>
+          )}
         </div>
         <div className="post-content my-1">
           <p>{content}</p>

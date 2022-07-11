@@ -14,6 +14,12 @@
 
 .post-header {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-name {
+  display: flex;
   gap: 0.5em;
   align-items: center;
 }
@@ -23,4 +29,20 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.post-menu {
+  position: relative;
+}
+
+.post-menu-options {
+  position: absolute;
+  right: 0;
+  width: 10rem;
+  background-color: var(--primary-bg);
+}
+
+.post-menu-option:hover {
+  cursor: pointer;
+  background-color: var(--secondary-color);
 }
