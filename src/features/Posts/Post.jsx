@@ -1,19 +1,29 @@
 import React, { useRef, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Modal, NewPost } from "../../components";
 import { useOnClickOutside, useToggle } from "../../hooks";
 import "./Post.css";
+import { deletePost } from "./postsSlice";
 
 function Post({ post }) {
-  const { content, username, firstName, lastName, postImage } = post;
+  const { _id, content, username, firstName, lastName, postImage } = post;
   const [isMenuVisible, setIsMenuVisible] = useState(false);
   const [isEditPostModal, toggleEditPostModal] = useToggle();
   const menuRef = useRef(null);
   useOnClickOutside(menuRef, () => setIsMenuVisible(false));
   const { user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
 
   const toggleMenuOptions = () => {
     setIsMenuVisible((prevState) => !prevState);
+  };
+
+  const deletePostHandler = () => {
+    try {
+      dispatch(deletePost({ postId: _id }));
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -45,6 +55,13 @@ function Post({ post }) {
                     onClick={toggleEditPostModal}
                   >
                     Edit
+                  </div>
+                  <hr className="separator" />
+                  <div
+                    className="post-menu-option p-1"
+                    onClick={deletePostHandler}
+                  >
+                    Delete
                   </div>
                 </div>
               )}

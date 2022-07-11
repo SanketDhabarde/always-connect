@@ -31,8 +31,8 @@ function NewPost({ toggleModal, singlePost }) {
         if (res) {
           toggleModal();
         }
-      } catch (e) {
-        console.log(e);
+      } catch (error) {
+        console.log(error);
       }
     }
   };
@@ -53,8 +53,8 @@ function NewPost({ toggleModal, singlePost }) {
         if (res) {
           toggleModal();
         }
-      } catch (e) {
-        console.log(e);
+      } catch (error) {
+        console.log(error);
       }
     }
   };

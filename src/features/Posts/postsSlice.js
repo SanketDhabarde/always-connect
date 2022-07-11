@@ -59,6 +59,22 @@ export const editPost = createAsyncThunk(
   }
 );
 
+export const deletePost = createAsyncThunk(
+  "posts/deletePost",
+  async ({ postId }, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.delete(`/api/posts/${postId}`, {
+        headers: {
+          authorization: TOKEN,
+        },
+      });
+      return data.posts;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
 export const postsSlice = createSlice({
   name: "posts",
   initialState,
@@ -80,6 +96,12 @@ export const postsSlice = createSlice({
       state.posts = payload;
     },
     [editPost.rejected]: (_, { payload }) => {
+      console.log(payload);
+    },
+    [deletePost.fulfilled]: (state, { payload }) => {
+      state.posts = payload;
+    },
+    [deletePost.rejected]: (_, { payload }) => {
       console.log(payload);
     },
   },
