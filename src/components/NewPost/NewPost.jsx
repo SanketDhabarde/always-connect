@@ -28,7 +28,7 @@ function NewPost({ toggleModal, singlePost }) {
         setPostTxt("");
         setPostImage(null);
         setPostTxtCount(250);
-        if (res) {
+        if (res && toggleModal) {
           toggleModal();
         }
       } catch (error) {
@@ -50,7 +50,7 @@ function NewPost({ toggleModal, singlePost }) {
         setPostTxt("");
         setPostImage(null);
         setPostTxtCount(250);
-        if (res) {
+        if (res && toggleModal) {
           toggleModal();
         }
       } catch (error) {
