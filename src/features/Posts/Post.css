@@ -46,3 +46,24 @@
   cursor: pointer;
   background-color: var(--secondary-color);
 }
+
+.icon-liked > i {
+  color: var(--primary-color);
+}
+
+.post-option-likes {
+  display: flex;
+  align-items: center;
+}
+
+.likeby-card {
+  width: 100%;
+}
+
+.liked-by-user {
+  cursor: pointer;
+}
+
+.liked-by-user:hover {
+  text-decoration: underline;
+}

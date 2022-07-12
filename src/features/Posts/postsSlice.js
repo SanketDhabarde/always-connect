@@ -75,6 +75,46 @@ export const deletePost = createAsyncThunk(
   }
 );
 
+export const likePost = createAsyncThunk(
+  "posts/likePost",
+  async ({ postId }, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post(
+        `/api/posts/like/${postId}`,
+        {},
+        {
+          headers: {
+            authorization: TOKEN,
+          },
+        }
+      );
+      return data.posts;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const dislikePost = createAsyncThunk(
+  "posts/dislikePost",
+  async ({ postId }, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post(
+        `/api/posts/dislike/${postId}`,
+        {},
+        {
+          headers: {
+            authorization: TOKEN,
+          },
+        }
+      );
+      return data.posts;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
 export const postsSlice = createSlice({
   name: "posts",
   initialState,
@@ -102,6 +142,18 @@ export const postsSlice = createSlice({
       state.posts = payload;
     },
     [deletePost.rejected]: (_, { payload }) => {
+      console.log(payload);
+    },
+    [likePost.fulfilled]: (state, { payload }) => {
+      state.posts = payload;
+    },
+    [likePost.rejected]: (_, { payload }) => {
+      console.log(payload);
+    },
+    [dislikePost.fulfilled]: (state, { payload }) => {
+      state.posts = payload;
+    },
+    [dislikePost.rejected]: (_, { payload }) => {
       console.log(payload);
     },
   },
