@@ -1,16 +1,18 @@
 import React, { useRef, useState } from "react";
-import { createPost } from "../../features";
+import { createPost, editPost } from "../../features";
 import { useDispatch } from "react-redux";
 import Picker from "emoji-picker-react";
 import "./NewPost.css";
 import { useOnClickOutside } from "../../hooks";
 import TextareaAutosize from "react-textarea-autosize";
 
-function NewPost({ toggleModal }) {
-  const [postTxt, setPostTxt] = useState("");
-  const [postTxtCount, setPostTxtCount] = useState(250);
+function NewPost({ toggleModal, singlePost }) {
+  const [postTxt, setPostTxt] = useState("" || singlePost?.content);
+  const [postTxtCount, setPostTxtCount] = useState(
+    250 - singlePost?.content.length || 250
+  );
   const [isEmojiPickerVisible, setIsEmojiPickerVisible] = useState(false);
-  const [postImage, setPostImage] = useState(null);
+  const [postImage, setPostImage] = useState(null || singlePost?.postImage);
   const dispatch = useDispatch();
   const emojiPickerRef = useRef(null);
   useOnClickOutside(emojiPickerRef, () => setIsEmojiPickerVisible(false));
@@ -26,11 +28,33 @@ function NewPost({ toggleModal }) {
         setPostTxt("");
         setPostImage(null);
         setPostTxtCount(250);
-        if (res) {
+        if (res && toggleModal) {
           toggleModal();
         }
-      } catch (e) {
-        console.log(e);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
+  const editPostHandler = async () => {
+    if (postTxt || postImage) {
+      const postData = {
+        content: postTxt,
+        postImage,
+      };
+      try {
+        const res = await dispatch(
+          editPost({ postData, postId: singlePost?._id })
+        );
+        setPostTxt("");
+        setPostImage(null);
+        setPostTxtCount(250);
+        if (res && toggleModal) {
+          toggleModal();
+        }
+      } catch (error) {
+        console.log(error);
       }
     }
   };
@@ -146,13 +170,23 @@ function NewPost({ toggleModal }) {
               >
                 {postTxtCount}
               </span>
-              <button
-                className="btn btn-primary"
-                onClick={createPostHandler}
-                disabled={(postTxt === "" && !postImage) || postTxtCount < 0}
-              >
-                Post
-              </button>
+              {singlePost ? (
+                <button
+                  className="btn btn-primary"
+                  onClick={editPostHandler}
+                  disabled={(postTxt === "" && !postImage) || postTxtCount < 0}
+                >
+                  Update
+                </button>
+              ) : (
+                <button
+                  className="btn btn-primary"
+                  onClick={createPostHandler}
+                  disabled={(postTxt === "" && !postImage) || postTxtCount < 0}
+                >
+                  Post
+                </button>
+              )}
             </div>
           </div>
         </div>

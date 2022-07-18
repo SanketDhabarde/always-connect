@@ -10,16 +10,16 @@ function Posts() {
   useEffect(() => {
     dispatch(getPosts());
   }, [dispatch]);
- 
+
   return (
-    <div className="card posts-feed p-3">
+    <div className="card container-card p-3">
       <NewPost />
       <div className="post-filters my-1">
         <h3>Latest Posts</h3>
       </div>
       <div className="posts-listing">
         {posts.map((post) => (
-          <Post post={post} key={post._id}/>
+          <Post post={post} key={post._id} />
         ))}
       </div>
     </div>
