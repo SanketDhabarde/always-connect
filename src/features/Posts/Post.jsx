@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { Modal, NewPost, User } from "../../components";
 import { useOnClickOutside, useToggle } from "../../hooks";
 import "./Post.css";
@@ -21,8 +22,23 @@ function Post({ post }) {
     setIsMenuVisible((prevState) => !prevState);
   };
 
-  const isUserLikedPost = (user, list) => {
-    return list.some((_user) => _user._id === user._id);
+  const getUserLikedPost = (user, likedBy) => {
+    return likedBy?.some((_user) => _user._id === user._id);
+  };
+
+  const isUserLikedPost = getUserLikedPost(user, likedBy);
+
+  const likeHandler = async () => {
+    try {
+      const res = isUserLikedPost
+        ? await dispatch(dislikePost({ postId: _id }))
+        : await dispatch(likePost({ postId: _id }));
+      if (res?.error) {
+        console.log(res.error);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -75,9 +91,9 @@ function Post({ post }) {
             </div>
           )}
         </div>
-        <div className="post-content my-1">
+        <Link to={`/posts/${_id}`} className="post-content my-1 btn-link">
           <p>{content}</p>
-        </div>
+        </Link>
         {postImage && (
           <div className="post-image">
             <img src={postImage} alt="post" className="img-responsive" />
@@ -85,26 +101,18 @@ function Post({ post }) {
         )}
         <div className="post-options my-2">
           <div className="post-option-likes">
-            {isUserLikedPost(user, likedBy) ? (
-              <div
-                className="icon icon-liked center-div"
-                onClick={() => dispatch(dislikePost({ postId: _id }))}
-              >
-                <i className="fas fa-heart"></i>
-              </div>
-            ) : (
-              <div
-                className="icon center-div"
-                onClick={() => dispatch(likePost({ postId: _id }))}
-              >
+            <div className="icon center-div" onClick={likeHandler}>
+              {isUserLikedPost ? (
+                <i className="fas fa-heart icon-liked"></i>
+              ) : (
                 <i className="far fa-heart"></i>
-              </div>
-            )}
+              )}
+            </div>
             {likeCount > 0 && <span>{likeCount}</span>}
           </div>
-          <div className="icon center-div">
+          <Link to={`/posts/${_id}`} className="icon center-div btn-link">
             <i className="far fa-comment-alt"></i>
-          </div>
+          </Link>
           <div className="icon center-div">
             <i className="fas fa-share-alt"></i>
           </div>

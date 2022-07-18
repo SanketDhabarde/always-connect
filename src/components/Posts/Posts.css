@@ -1,9 +1,9 @@
-.posts-feed {
+.container-card {
   width: 35rem;
   height: 90vh;
   overflow-y: scroll;
 }
 
-.posts-feed.card {
+.container-card.card {
   border: none;
 }

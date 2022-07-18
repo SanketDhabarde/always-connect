@@ -47,7 +47,7 @@
   background-color: var(--secondary-color);
 }
 
-.icon-liked > i {
+.icon-liked {
   color: var(--primary-color);
 }
 
