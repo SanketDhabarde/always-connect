@@ -6,7 +6,7 @@ import "./Home.css";
 function Home() {
   useTitle("Home");
   return (
-    <div className="home">
+    <div className="container">
       <Sidebar />
       <Posts />
       <FollowCard />
