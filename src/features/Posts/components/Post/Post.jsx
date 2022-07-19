@@ -1,10 +1,10 @@
 import React, { useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { Modal, NewPost, User } from "../../components";
-import { useOnClickOutside, useToggle } from "../../hooks";
+import { Modal, NewPost, User } from "../../../../components";
+import { useOnClickOutside, useToggle } from "../../../../hooks";
 import "./Post.css";
-import { deletePost, dislikePost, likePost } from "./postsSlice";
+import { deletePost, dislikePost, likePost } from "../../postsSlice";
 
 function Post({ post }) {
   const [isMenuVisible, setIsMenuVisible] = useState(false);

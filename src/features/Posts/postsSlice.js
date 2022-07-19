@@ -115,6 +115,26 @@ export const dislikePost = createAsyncThunk(
   }
 );
 
+export const addComment = createAsyncThunk(
+  "posts/addComment",
+  async ({ postId, commentData }, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post(
+        `/api/comments/add/${postId}`,
+        { commentData },
+        {
+          headers: {
+            authorization: TOKEN,
+          },
+        }
+      );
+      return { postId, comments: data.comments };
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
 export const postsSlice = createSlice({
   name: "posts",
   initialState,
@@ -154,6 +174,14 @@ export const postsSlice = createSlice({
       state.posts = payload;
     },
     [dislikePost.rejected]: (_, { payload }) => {
+      console.log(payload);
+    },
+    [addComment.fulfilled]: (state, { payload }) => {
+      const { postId, comments } = payload;
+      const postIndex = state?.posts.findIndex((post) => post._id === postId);
+      state.posts[postIndex].comments = comments;
+    },
+    [addComment.rejected]: (_, { payload }) => {
       console.log(payload);
     },
   },

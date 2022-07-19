@@ -12,7 +12,7 @@ function Posts() {
   }, [dispatch]);
 
   return (
-    <div className="card container-card p-3">
+    <div className="card container-card px-3">
       <NewPost />
       <div className="post-filters my-1">
         <h3>Latest Posts</h3>

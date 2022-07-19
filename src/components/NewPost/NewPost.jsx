@@ -17,6 +17,12 @@ function NewPost({ toggleModal, singlePost }) {
   const emojiPickerRef = useRef(null);
   useOnClickOutside(emojiPickerRef, () => setIsEmojiPickerVisible(false));
 
+  const initializeState = () => {
+    setPostTxt("");
+    setPostImage(null);
+    setPostTxtCount(250);
+  };
+
   const createPostHandler = async () => {
     if (postTxt || postImage) {
       const postData = {
@@ -25,9 +31,7 @@ function NewPost({ toggleModal, singlePost }) {
       };
       try {
         const res = await dispatch(createPost({ postData }));
-        setPostTxt("");
-        setPostImage(null);
-        setPostTxtCount(250);
+        initializeState();
         if (res && toggleModal) {
           toggleModal();
         }
@@ -47,9 +51,7 @@ function NewPost({ toggleModal, singlePost }) {
         const res = await dispatch(
           editPost({ postData, postId: singlePost?._id })
         );
-        setPostTxt("");
-        setPostImage(null);
-        setPostTxtCount(250);
+        initializeState();
         if (res && toggleModal) {
           toggleModal();
         }
