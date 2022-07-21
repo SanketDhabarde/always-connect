@@ -7,12 +7,12 @@ import { useOnClickOutside } from "../../hooks";
 import TextareaAutosize from "react-textarea-autosize";
 
 function NewPost({ toggleModal, singlePost }) {
-  const [postTxt, setPostTxt] = useState("" || singlePost?.content);
+  const [postTxt, setPostTxt] = useState(singlePost?.content ?? "");
   const [postTxtCount, setPostTxtCount] = useState(
     250 - singlePost?.content.length || 250
   );
   const [isEmojiPickerVisible, setIsEmojiPickerVisible] = useState(false);
-  const [postImage, setPostImage] = useState(null || singlePost?.postImage);
+  const [postImage, setPostImage] = useState(singlePost?.postImage);
   const dispatch = useDispatch();
   const emojiPickerRef = useRef(null);
   useOnClickOutside(emojiPickerRef, () => setIsEmojiPickerVisible(false));
@@ -184,7 +184,7 @@ function NewPost({ toggleModal, singlePost }) {
                 <button
                   className="btn btn-primary"
                   onClick={createPostHandler}
-                  disabled={(postTxt === "" && !postImage) || postTxtCount < 0}
+                  disabled={ postTxt?.length > 250 || (postTxt === "" && !postImage)}
                 >
                   Post
                 </button>
