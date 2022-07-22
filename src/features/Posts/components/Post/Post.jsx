@@ -14,8 +14,16 @@ function Post({ post }) {
   const dispatch = useDispatch();
   const menuRef = useRef(null);
   useOnClickOutside(menuRef, () => setIsMenuVisible(false));
-  const { _id, content, username, firstName, lastName, postImage, likes } =
-    post;
+  const {
+    _id,
+    content,
+    username,
+    firstName,
+    lastName,
+    postImage,
+    likes,
+    comments,
+  } = post;
   const { likeCount, likedBy } = likes;
 
   const toggleMenuOptions = () => {
@@ -25,6 +33,8 @@ function Post({ post }) {
   const getUserLikedPost = (user, likedBy) => {
     return likedBy?.some((_user) => _user._id === user._id);
   };
+
+  console.log(post);
 
   const isUserLikedPost = getUserLikedPost(user, likedBy);
 
@@ -106,7 +116,7 @@ function Post({ post }) {
           </div>
         )}
         <div className="post-options my-2">
-          <div className="post-option-likes">
+          <div className="post-option">
             <div
               className="icon center-div"
               onClick={likeHandler}
@@ -120,13 +130,16 @@ function Post({ post }) {
             </div>
             {likeCount > 0 && <span>{likeCount}</span>}
           </div>
-          <Link
-            to={`/posts/${_id}`}
-            className="icon center-div btn-link"
-            title="Comments"
-          >
-            <i className="far fa-comment-alt"></i>
-          </Link>
+          <div className="post-option">
+            <Link
+              to={`/posts/${_id}`}
+              className="icon center-div btn-link"
+              title="Comments"
+            >
+              <i className="far fa-comment-alt"></i>
+            </Link>
+            {comments.length > 0 && <span>{comments.length}</span>}
+          </div>
           <div className="icon center-div" title="Share">
             <i className="fas fa-share-alt"></i>
           </div>
