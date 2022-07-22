@@ -1,4 +1,22 @@
 .avatar-x-sm {
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.post-card,
+.posts-new {
+  background-color: var(--card-bg);
+}
+
+.new-comment-input {
+  display: flex;
+  gap: 1em;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.icon:hover{
+  opacity: 0.8;
 }

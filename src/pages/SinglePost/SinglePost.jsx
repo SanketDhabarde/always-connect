@@ -86,10 +86,13 @@ function SinglePost() {
             </div>
           </form>
         </div>
-        <h4>COMMENTS :</h4>
         <div className="comments-listing my-2">
           {comments?.map((comment) => (
-            <Comment comment={comment} key={comment._id} />
+            <Comment
+              comment={comment}
+              key={comment._id}
+              postId={selectedPost._id}
+            />
           ))}
         </div>
       </div>
