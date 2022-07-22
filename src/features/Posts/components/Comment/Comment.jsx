@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useOnClickOutside, useToggle } from "../../../../hooks";
-import { editComment } from "../../postsSlice";
+import { deleteComment, editComment } from "../../postsSlice";
 import "./Comment.css";
 
 function Comment({ comment, postId }) {
@@ -30,6 +30,14 @@ function Comment({ comment, postId }) {
     dispatch(editComment(payload));
     toggleNewComment();
   };
+
+  const deleteCommentHandler = () => {
+    const payload = {
+      postId,
+      commentId: _id
+    };
+    dispatch(deleteComment(payload));
+  }
 
   return (
     <div className="card post-card my-1 p-1 comment-card">
@@ -69,7 +77,10 @@ function Comment({ comment, postId }) {
                     Edit
                   </div>
                   <hr className="separator" />
-                  <div className="post-menu-option p-1">
+                  <div
+                    className="post-menu-option p-1"
+                    onClick={deleteCommentHandler}
+                  >
                     <i className="fas fa-trash"></i>
                     Delete
                   </div>
