@@ -1,3 +1,15 @@
 .w-100 {
   width: 100%;
 }
+
+.comment-submit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn.btn-sm {
+  width: fit-content;
+  margin: 0;
+  padding: 0.8em 0.8em;
+}

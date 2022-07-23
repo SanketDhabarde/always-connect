@@ -1,10 +1,10 @@
 import React, { useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { Modal, NewPost, User } from "../../components";
-import { useOnClickOutside, useToggle } from "../../hooks";
+import { Modal, NewPost, User } from "../../../../components";
+import { useOnClickOutside, useToggle } from "../../../../hooks";
 import "./Post.css";
-import { deletePost, dislikePost, likePost } from "./postsSlice";
+import { deletePost, dislikePost, likePost } from "../../postsSlice";
 
 function Post({ post }) {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
@@ -14,8 +14,16 @@ function Post({ post }) {
   const dispatch = useDispatch();
   const menuRef = useRef(null);
   useOnClickOutside(menuRef, () => setIsMenuVisible(false));
-  const { _id, content, username, firstName, lastName, postImage, likes } =
-    post;
+  const {
+    _id,
+    content,
+    username,
+    firstName,
+    lastName,
+    postImage,
+    likes,
+    comments,
+  } = post;
   const { likeCount, likedBy } = likes;
 
   const toggleMenuOptions = () => {
@@ -25,6 +33,8 @@ function Post({ post }) {
   const getUserLikedPost = (user, likedBy) => {
     return likedBy?.some((_user) => _user._id === user._id);
   };
+
+  console.log(post);
 
   const isUserLikedPost = getUserLikedPost(user, likedBy);
 
@@ -60,8 +70,12 @@ function Post({ post }) {
           </div>
           {username === user.username && (
             <div className="post-menu" ref={menuRef}>
-              <div className="icon center-div" onClick={toggleMenuOptions}>
-                <i className="fas fa-ellipsis-v"></i>
+              <div
+                className="icon center-div"
+                onClick={toggleMenuOptions}
+                title="More"
+              >
+                <i className="fas fa-ellipsis-h"></i>
               </div>
               {isMenuVisible && (
                 <div className="card post-menu-options p-1">
@@ -69,6 +83,7 @@ function Post({ post }) {
                     className="post-menu-option p-1"
                     onClick={toggleEditPostModal}
                   >
+                    <i className="fas fa-edit"></i>
                     Edit
                   </div>
                   <hr className="separator" />
@@ -76,6 +91,7 @@ function Post({ post }) {
                     className="post-menu-option p-1"
                     onClick={() => dispatch(deletePost({ postId: _id }))}
                   >
+                    <i className="fas fa-trash"></i>
                     Delete
                   </div>
                 </div>
@@ -100,8 +116,12 @@ function Post({ post }) {
           </div>
         )}
         <div className="post-options my-2">
-          <div className="post-option-likes">
-            <div className="icon center-div" onClick={likeHandler}>
+          <div className="post-option">
+            <div
+              className="icon center-div"
+              onClick={likeHandler}
+              title="Likes"
+            >
               {isUserLikedPost ? (
                 <i className="fas fa-heart icon-liked"></i>
               ) : (
@@ -110,13 +130,20 @@ function Post({ post }) {
             </div>
             {likeCount > 0 && <span>{likeCount}</span>}
           </div>
-          <Link to={`/posts/${_id}`} className="icon center-div btn-link">
-            <i className="far fa-comment-alt"></i>
-          </Link>
-          <div className="icon center-div">
+          <div className="post-option">
+            <Link
+              to={`/posts/${_id}`}
+              className="icon center-div btn-link"
+              title="Comments"
+            >
+              <i className="far fa-comment-alt"></i>
+            </Link>
+            {comments.length > 0 && <span>{comments.length}</span>}
+          </div>
+          <div className="icon center-div" title="Share">
             <i className="fas fa-share-alt"></i>
           </div>
-          <div className="icon center-div">
+          <div className="icon center-div" title="Bookmark">
             <i className="far fa-bookmark"></i>
           </div>
         </div>

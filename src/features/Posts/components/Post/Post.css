@@ -40,6 +40,13 @@
   right: 0;
   width: 10rem;
   background-color: var(--primary-bg);
+  z-index: 1;
+}
+
+.post-menu-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
 }
 
 .post-menu-option:hover {
@@ -51,7 +58,7 @@
   color: var(--primary-color);
 }
 
-.post-option-likes {
+.post-option {
   display: flex;
   align-items: center;
 }

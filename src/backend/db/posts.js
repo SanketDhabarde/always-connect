@@ -30,6 +30,8 @@ export const posts = [
           upvotedBy: [],
           downvotedBy: [],
         },
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
       },
       {
         _id: uuid(),
@@ -39,6 +41,8 @@ export const posts = [
           upvotedBy: [],
           downvotedBy: [],
         },
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
       },
     ],
   },
@@ -62,6 +66,8 @@ export const posts = [
         votes: {
           upvotedBy: [],
           downvotedBy: [],
+          createdAt: formatDate(),
+          updatedAt: formatDate(),
         },
       },
       {
@@ -71,6 +77,8 @@ export const posts = [
         votes: {
           upvotedBy: [],
           downvotedBy: [],
+          createdAt: formatDate(),
+          updatedAt: formatDate(),
         },
       },
     ],

@@ -15,7 +15,7 @@ function Sidebar() {
         <Nav
           link="/explore"
           linkName="Explore"
-          icon={<i className="fas fa-compass"></i>}
+          icon={<i className="fas fa-hashtag"></i>}
         />
         <Nav
           link="/bookmark"
@@ -38,7 +38,7 @@ function Sidebar() {
       </div>
       {newPostModal && (
         <Modal toggleModal={toggleNewPostModal}>
-          <NewPost toggleModal={toggleNewPostModal}/>
+          <NewPost toggleModal={toggleNewPostModal} />
         </Modal>
       )}
     </div>
