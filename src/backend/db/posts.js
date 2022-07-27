@@ -19,8 +19,8 @@ export const posts = [
     username: "adarshbalika",
     firstName: "Adarsh",
     lastName: "Balika",
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: new Date("May 12, 2022 20:10:05"),
+    updatedAt: new Date("May 12, 2022 20:10:05"),
     comments: [
       {
         _id: uuid(),
@@ -30,8 +30,8 @@ export const posts = [
           upvotedBy: [],
           downvotedBy: [],
         },
-        createdAt: formatDate(),
-        updatedAt: formatDate(),
+        createdAt: new Date("May 12, 2022 20:10:05"),
+        updatedAt: new Date("May 12, 2022 20:10:05"),
       },
       {
         _id: uuid(),
@@ -41,8 +41,8 @@ export const posts = [
           upvotedBy: [],
           downvotedBy: [],
         },
-        createdAt: formatDate(),
-        updatedAt: formatDate(),
+        createdAt: new Date("May 12, 2022 20:10:05"),
+        updatedAt: new Date("May 12, 2022 20:10:05"),
       },
     ],
   },
@@ -66,8 +66,8 @@ export const posts = [
         votes: {
           upvotedBy: [],
           downvotedBy: [],
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: new Date("February 11 2021 08:06:17"),
+          updatedAt: new Date("February 11 2021 08:06:17"),
         },
       },
       {
@@ -77,12 +77,12 @@ export const posts = [
         votes: {
           upvotedBy: [],
           downvotedBy: [],
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: new Date("February 11 2021 08:06:17"),
+          updatedAt: new Date("February 11 2021 08:06:17"),
         },
       },
     ],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: new Date("February 11 2021 08:06:17"),
+    updatedAt: new Date("February 11 2021 08:06:17"),
   },
 ];

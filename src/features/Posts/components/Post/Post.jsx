@@ -5,6 +5,7 @@ import { Modal, NewPost, User } from "../../../../components";
 import { useOnClickOutside, useToggle } from "../../../../hooks";
 import "./Post.css";
 import { deletePost, dislikePost, likePost } from "../../postsSlice";
+import { getDate, isUserLikedPost } from "../../utils";
 
 function Post({ post }) {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
@@ -23,6 +24,7 @@ function Post({ post }) {
     postImage,
     likes,
     comments,
+    createdAt,
   } = post;
   const { likeCount, likedBy } = likes;
 
@@ -30,17 +32,9 @@ function Post({ post }) {
     setIsMenuVisible((prevState) => !prevState);
   };
 
-  const getUserLikedPost = (user, likedBy) => {
-    return likedBy?.some((_user) => _user._id === user._id);
-  };
-
-  console.log(post);
-
-  const isUserLikedPost = getUserLikedPost(user, likedBy);
-
   const likeHandler = async () => {
     try {
-      const res = isUserLikedPost
+      const res = isUserLikedPost(user, likedBy)
         ? await dispatch(dislikePost({ postId: _id }))
         : await dispatch(likePost({ postId: _id }));
       if (res?.error) {
@@ -52,7 +46,7 @@ function Post({ post }) {
   };
 
   return (
-    <div className="card post-card my-2 p-1">
+    <div className="card post-card my-2 p-2">
       <div className="post-card-left">
         <div className="avatar avatar-sm m-1 profile-avatar">
           <img
@@ -66,7 +60,9 @@ function Post({ post }) {
         <div className="post-header">
           <div className="user-name">
             <h4>{`${firstName} ${lastName}`}</h4>{" "}
-            <small className="text-gray">@{username}</small>
+            <small className="text-gray">
+              @{username} - {getDate(createdAt)}
+            </small>
           </div>
           {username === user.username && (
             <div className="post-menu" ref={menuRef}>
@@ -111,18 +107,18 @@ function Post({ post }) {
           <p>{content}</p>
         </Link>
         {postImage && (
-          <div className="post-image">
+          <div className="post-image my-1">
             <img src={postImage} alt="post" className="img-responsive" />
           </div>
         )}
-        <div className="post-options my-2">
+        <div className="post-options my-1">
           <div className="post-option">
             <div
               className="icon center-div"
               onClick={likeHandler}
               title="Likes"
             >
-              {isUserLikedPost ? (
+              {isUserLikedPost(user, likedBy) ? (
                 <i className="fas fa-heart icon-liked"></i>
               ) : (
                 <i className="far fa-heart"></i>

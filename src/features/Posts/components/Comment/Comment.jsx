@@ -2,10 +2,11 @@ import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useOnClickOutside, useToggle } from "../../../../hooks";
 import { deleteComment, editComment } from "../../postsSlice";
+import { getDate } from "../../utils";
 import "./Comment.css";
 
 function Comment({ comment, postId }) {
-  const { _id, text, username } = comment;
+  const { _id, text, username, createdAt } = comment;
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [isMenuVisible, setIsMenuVisible] = useState(false);
@@ -34,10 +35,10 @@ function Comment({ comment, postId }) {
   const deleteCommentHandler = () => {
     const payload = {
       postId,
-      commentId: _id
+      commentId: _id,
     };
     dispatch(deleteComment(payload));
-  }
+  };
 
   return (
     <div className="card post-card my-1 p-1 comment-card">
@@ -54,6 +55,7 @@ function Comment({ comment, postId }) {
         <div className="post-header">
           <div className="user-name">
             <h4>{username}</h4>
+            <small className="text-gray">{getDate(createdAt)}</small>
           </div>
           {username === user.username && (
             <div className="post-menu" ref={menuRef}>
