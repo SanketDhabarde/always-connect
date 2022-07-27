@@ -20,7 +20,7 @@ export const posts = [
     firstName: "Adarsh",
     lastName: "Balika",
     createdAt: new Date("May 12, 2022 20:10:05"),
-    updatedAt: new Date("May 12, 2022 20:10:05"),
+    updatedAt: formatDate(),
     comments: [
       {
         _id: uuid(),
@@ -31,7 +31,7 @@ export const posts = [
           downvotedBy: [],
         },
         createdAt: new Date("May 12, 2022 20:10:05"),
-        updatedAt: new Date("May 12, 2022 20:10:05"),
+        updatedAt: formatDate(),
       },
       {
         _id: uuid(),
@@ -42,7 +42,7 @@ export const posts = [
           downvotedBy: [],
         },
         createdAt: new Date("May 12, 2022 20:10:05"),
-        updatedAt: new Date("May 12, 2022 20:10:05"),
+        updatedAt: formatDate(),
       },
     ],
   },
@@ -67,7 +67,7 @@ export const posts = [
           upvotedBy: [],
           downvotedBy: [],
           createdAt: new Date("February 11 2021 08:06:17"),
-          updatedAt: new Date("February 11 2021 08:06:17"),
+          updatedAt: formatDate(),
         },
       },
       {
@@ -78,11 +78,11 @@ export const posts = [
           upvotedBy: [],
           downvotedBy: [],
           createdAt: new Date("February 11 2021 08:06:17"),
-          updatedAt: new Date("February 11 2021 08:06:17"),
+          updatedAt: formatDate(),
         },
       },
     ],
     createdAt: new Date("February 11 2021 08:06:17"),
-    updatedAt: new Date("February 11 2021 08:06:17"),
+    updatedAt: formatDate(),
   },
 ];
