@@ -25,6 +25,7 @@ function Post({ post }) {
     likes,
     comments,
     createdAt,
+    profileImg,
   } = post;
   const { likeCount, likedBy } = likes;
 
@@ -50,7 +51,7 @@ function Post({ post }) {
       <div className="post-card-left">
         <div className="avatar avatar-sm m-1 profile-avatar">
           <img
-            src="https://i.pravatar.cc/500"
+            src={profileImg}
             alt="avatar"
             className="img-responsive img-round"
           />

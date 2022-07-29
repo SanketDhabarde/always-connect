@@ -6,7 +6,7 @@ import { getDate } from "../../utils";
 import "./Comment.css";
 
 function Comment({ comment, postId }) {
-  const { _id, text, username, createdAt } = comment;
+  const { _id, text, username, createdAt, profileImg } = comment;
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [isMenuVisible, setIsMenuVisible] = useState(false);
@@ -45,7 +45,7 @@ function Comment({ comment, postId }) {
       <div className="post-card-left">
         <div className="avatar avatar-x-sm m-1 profile-avatar">
           <img
-            src="https://i.pravatar.cc/500"
+            src={profileImg}
             alt="avatar"
             className="img-responsive img-round"
           />

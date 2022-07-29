@@ -19,6 +19,8 @@ export const posts = [
     username: "adarshbalika",
     firstName: "Adarsh",
     lastName: "Balika",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659105639/ktspc9duwa7ei3emgru8.jpg",
     createdAt: new Date("May 12, 2022 20:10:05"),
     updatedAt: formatDate(),
     comments: [
@@ -30,17 +32,21 @@ export const posts = [
           upvotedBy: [],
           downvotedBy: [],
         },
+        profileImg:
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659105605/hzalfmyprdjhuxkzdydq.jpg",
         createdAt: new Date("May 12, 2022 20:10:05"),
         updatedAt: formatDate(),
       },
       {
         _id: uuid(),
-        username: "sohamshah",
+        username: "adarshbalika",
         text: "Wow!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
         },
+        profileImg:
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659105639/ktspc9duwa7ei3emgru8.jpg",
         createdAt: new Date("May 12, 2022 20:10:05"),
         updatedAt: formatDate(),
       },
@@ -57,7 +63,8 @@ export const posts = [
     username: "shubhamsoni",
     firstName: "Shubham",
     lastName: "Soni",
-
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659105605/hzalfmyprdjhuxkzdydq.jpg",
     comments: [
       {
         _id: uuid(),
@@ -66,20 +73,24 @@ export const posts = [
         votes: {
           upvotedBy: [],
           downvotedBy: [],
-          createdAt: new Date("February 11 2021 08:06:17"),
-          updatedAt: formatDate(),
         },
+        profileImg:
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659105605/hzalfmyprdjhuxkzdydq.jpg",
+        createdAt: new Date("February 11 2021 08:06:17"),
+        updatedAt: formatDate(),
       },
       {
         _id: uuid(),
-        username: "sohamshah",
+        username: "adarshbalika",
         text: "Wow!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
-          createdAt: new Date("February 11 2021 08:06:17"),
-          updatedAt: formatDate(),
         },
+        profileImg:
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659105639/ktspc9duwa7ei3emgru8.jpg",
+        createdAt: new Date("February 11 2021 08:06:17"),
+        updatedAt: formatDate(),
       },
     ],
     createdAt: new Date("February 11 2021 08:06:17"),

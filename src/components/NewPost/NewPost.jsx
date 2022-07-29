@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { createPost, editPost } from "../../features";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Picker from "emoji-picker-react";
 import "./NewPost.css";
 import { useOnClickOutside } from "../../hooks";
@@ -13,6 +13,7 @@ function NewPost({ toggleModal, singlePost }) {
   );
   const [isEmojiPickerVisible, setIsEmojiPickerVisible] = useState(false);
   const [postImage, setPostImage] = useState(singlePost?.postImage);
+  const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const emojiPickerRef = useRef(null);
   useOnClickOutside(emojiPickerRef, () => setIsEmojiPickerVisible(false));
@@ -105,7 +106,7 @@ function NewPost({ toggleModal, singlePost }) {
       <div className="card posts-new p-1">
         <div className="avatar avatar-sm m-1 profile-avatar">
           <img
-            src="https://i.pravatar.cc/500"
+            src={user.profileImg}
             alt="avatar"
             className="img-responsive img-round"
           />
@@ -184,7 +185,9 @@ function NewPost({ toggleModal, singlePost }) {
                 <button
                   className="btn btn-primary"
                   onClick={createPostHandler}
-                  disabled={ postTxt?.length > 250 || (postTxt === "" && !postImage)}
+                  disabled={
+                    postTxt?.length > 250 || (postTxt === "" && !postImage)
+                  }
                 >
                   Post
                 </button>
