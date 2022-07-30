@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { Login, Signup } from "../features";
-import { Home, SinglePost } from "../pages";
+import { Home, Profile, SinglePost } from "../pages";
 import RequiresAuth from "./RequiresAuth";
 
 function AppRoutes() {
@@ -10,6 +10,7 @@ function AppRoutes() {
       <Route path="/" element={<RequiresAuth />}>
         <Route path="/" element={<Home />} />
         <Route path="/posts/:postId" element={<SinglePost />} />
+        <Route path="/profile" element={<Profile />} />
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />

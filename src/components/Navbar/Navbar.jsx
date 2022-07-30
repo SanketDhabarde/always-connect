@@ -15,13 +15,13 @@ function Navbar() {
       </div>
       {user && (
         <div className="nav-right center-div">
-          <div className="avatar avatar-sm">
+          <Link to="/profile" className="avatar avatar-sm">
             <img
               src={user.profileImg}
               alt="avatar"
               className="img-responsive img-round"
             />
-          </div>
+          </Link>
         </div>
       )}
     </header>
