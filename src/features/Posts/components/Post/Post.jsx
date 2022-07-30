@@ -104,7 +104,7 @@ function Post({ post }) {
             </div>
           )}
         </div>
-        <Link to={`/posts/${_id}`} className="post-content my-1 btn-link">
+        <Link to={`/posts/${_id}`} className="post-content my-2 btn-link">
           <p>{content}</p>
         </Link>
         {postImage && (
@@ -145,7 +145,7 @@ function Post({ post }) {
           </div>
         </div>
         {likeCount > 0 && (
-          <div className="post-extra-info my-1 ">
+          <div className="post-extra-info my-1">
             <p className="liked-by-user text-gray" onClick={toggleLikedByModal}>
               {likedBy[0]?.username}
               {likeCount > 2
