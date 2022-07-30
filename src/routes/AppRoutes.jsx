@@ -10,7 +10,7 @@ function AppRoutes() {
       <Route path="/" element={<RequiresAuth />}>
         <Route path="/" element={<Home />} />
         <Route path="/posts/:postId" element={<SinglePost />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/:username" element={<Profile />} />
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />

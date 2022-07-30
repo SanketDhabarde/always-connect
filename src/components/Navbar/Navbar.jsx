@@ -15,7 +15,7 @@ function Navbar() {
       </div>
       {user && (
         <div className="nav-right center-div">
-          <Link to="/profile" className="avatar avatar-sm">
+          <Link to={`/profile/${user.username}`} className="avatar avatar-sm">
             <img
               src={user.profileImg}
               alt="avatar"

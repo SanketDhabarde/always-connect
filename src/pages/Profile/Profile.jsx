@@ -1,16 +1,35 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
 import { FollowCard, Sidebar } from "../../components";
-import { Post } from "../../features";
-import { getUserPosts } from "../../features/Posts/utils";
+import { getUserProfile, Post } from "../../features";
+import { getUserPosts, sortPosts } from "../../features/Posts/utils";
 import "./Profile.css";
 
 function Profile() {
+  const { userProfile } = useSelector((state) => state.user);
   const { user } = useSelector((state) => state.auth);
   const { posts } = useSelector((state) => state.posts);
-  const { profileImg, username } = user;
+  const dispatch = useDispatch();
+  const { profileImg, username, firstName, lastName } = userProfile;
   const userPosts = getUserPosts(posts, username);
+  const sortedUserPosts = sortPosts(userPosts, "latest");
+  const { username: userName } = useParams();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await dispatch(getUserProfile({ userName }));
+        if (response.error) {
+          console.log(response.error);
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    })();
+  }, [userName]);
+
   return (
     <div className="container my-2">
       <Sidebar />
@@ -34,10 +53,12 @@ function Profile() {
           </div>
           <div className="profile-container px-2">
             <div className="profile-edit">
-              <button className="btn btn-outline-primary">Edit profile</button>
+              <button className="btn btn-outline-primary">
+                {user.username === username ? `Edit profile` : `Follow`}
+              </button>
             </div>
             <div className="profile-name my-1">
-              <h3>Joan Doe</h3>
+              <h3>{`${firstName} ${lastName}`}</h3>
               <small className="text-gray">@{username}</small>
             </div>
             <div className="profile-bio my-1">
@@ -55,7 +76,7 @@ function Profile() {
               </Link>
             </div>
             <div className="profile-more-info my-2">
-              <div className="posts-number">{userPosts.length} posts</div>
+              <div className="posts-number">{sortedUserPosts.length} posts</div>
               <div className="follower-number hover-underline">0 follower</div>
               <div className="following-number hover-underline">
                 0 following
@@ -64,8 +85,8 @@ function Profile() {
           </div>
         </div>
         <div className="posts-listing">
-          {userPosts.length > 0 ? (
-            userPosts.map((post) => <Post post={post} key={post._id} />)
+          {sortedUserPosts.length > 0 ? (
+            sortedUserPosts.map((post) => <Post post={post} key={post._id} />)
           ) : (
             <p className="center-div my-2 text-gray">No posts yet</p>
           )}

@@ -49,13 +49,15 @@ function Post({ post }) {
   return (
     <div className="card post-card my-2 p-2">
       <div className="post-card-left">
-        <div className="avatar avatar-sm m-1 profile-avatar">
-          <img
-            src={profileImg}
-            alt="avatar"
-            className="img-responsive img-round"
-          />
-        </div>
+        <Link to={`/profile/${username}`}>
+          <div className="avatar avatar-sm m-1 profile-avatar">
+            <img
+              src={profileImg}
+              alt="avatar"
+              className="img-responsive img-round"
+            />
+          </div>
+        </Link>
       </div>
       <div className="post-card-right">
         <div className="post-header">

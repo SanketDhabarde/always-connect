@@ -19,6 +19,28 @@ export const users = [
   },
   {
     _id: uuid(),
+    firstName: "Adarsh",
+    lastName: "Balika",
+    username: "adarshbalika",
+    password: "adarshbalika123",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659105639/ktspc9duwa7ei3emgru8.jpg",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    firstName: "Shubham",
+    lastName: "Soni",
+    username: "shubhamsoni",
+    password: "shubhamsoni123",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659105605/hzalfmyprdjhuxkzdydq.jpg",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
     firstName: "Sanket",
     lastName: "Dhabarde",
     username: "SanketDhabarde1",

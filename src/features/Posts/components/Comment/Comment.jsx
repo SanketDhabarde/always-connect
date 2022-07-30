@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { useOnClickOutside, useToggle } from "../../../../hooks";
 import { deleteComment, editComment } from "../../postsSlice";
 import { getDate } from "../../utils";
@@ -43,13 +44,15 @@ function Comment({ comment, postId }) {
   return (
     <div className="card post-card my-1 p-1 comment-card">
       <div className="post-card-left">
-        <div className="avatar avatar-x-sm m-1 profile-avatar">
-          <img
-            src={profileImg}
-            alt="avatar"
-            className="img-responsive img-round"
-          />
-        </div>
+        <Link to={`/profile/${username}`}>
+          <div className="avatar avatar-x-sm m-1 profile-avatar">
+            <img
+              src={profileImg}
+              alt="avatar"
+              className="img-responsive img-round"
+            />
+          </div>
+        </Link>
       </div>
       <div className="post-card-right">
         <div className="post-header">
