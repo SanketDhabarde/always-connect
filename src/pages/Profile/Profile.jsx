@@ -1,11 +1,11 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
-import { FollowCard, Sidebar, Spinner } from "../../components";
-import { getUserProfile, Post } from "../../features";
+import { useParams } from "react-router-dom";
+import { FollowCard, Modal, Sidebar, Spinner } from "../../components";
+import { EditProfile, getUserProfile, Post } from "../../features";
 import { getUserPosts, sortPosts } from "../../features/Posts/utils";
-import { useTitle } from "../../hooks";
+import { useTitle, useToggle } from "../../hooks";
 import "./Profile.css";
 
 function Profile() {
@@ -15,7 +15,16 @@ function Profile() {
   const { user } = useSelector((state) => state.auth);
   const { posts } = useSelector((state) => state.posts);
   const dispatch = useDispatch();
-  const { profileImg, username, firstName, lastName } = userProfile;
+  const [isEditModalVisible, toggleEditModal] = useToggle();
+  const {
+    profileImg,
+    username,
+    firstName,
+    lastName,
+    profileLink,
+    bio,
+    profileBanner,
+  } = userProfile;
   const userPosts = getUserPosts(posts, username);
   const sortedUserPosts = sortPosts(userPosts, "latest");
   const { username: userName } = useParams();
@@ -32,7 +41,7 @@ function Profile() {
         console.log(e);
       }
     })();
-  }, [userName]);
+  }, [userName, dispatch]);
 
   return (
     <div className="container my-2">
@@ -45,7 +54,7 @@ function Profile() {
             <div className="card w-100 profile-header">
               <div className="profile-banner">
                 <img
-                  src="https://res.cloudinary.com/dphfdaqls/image/upload/v1659158279/xixyo07shtqhfuocbuac.webp"
+                  src={profileBanner}
                   alt="avatar"
                   className="img-responsive"
                 />
@@ -61,27 +70,33 @@ function Profile() {
               </div>
               <div className="profile-container px-2">
                 <div className="profile-edit">
-                  <button className="btn btn-outline-primary">
-                    {user.username === username ? `Edit profile` : `Follow`}
-                  </button>
+                  {user.username === username ? (
+                    <button
+                      className="btn btn-outline-primary"
+                      onClick={toggleEditModal}
+                    >
+                      Edit profile
+                    </button>
+                  ) : (
+                    <button className="btn btn-outline-primary">Follow</button>
+                  )}
                 </div>
                 <div className="profile-name my-1">
                   <h3>{`${firstName} ${lastName}`}</h3>
                   <small className="text-gray">@{username}</small>
                 </div>
                 <div className="profile-bio my-1">
-                  <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Corrupti consequatur laboriosam, laborum magnam
-                    reprehenderit earum ratione a. A vitae quam non perspiciatis
-                    sed doloribus ex facere totam velit alias. Laboriosam.
-                  </p>
+                  <p>{bio}</p>
                 </div>
                 <div className="profile-bio-link my-1">
-                  <i className="fas fa-link text-gray"></i>
-                  <Link to="#" className="link">
-                    joandoe.com
-                  </Link>
+                  {profileLink && (
+                    <>
+                      <i className="fas fa-link text-gray"></i>
+                      <a href={profileLink} className="link" target="_blank" rel="noreferrer">
+                        {profileLink}
+                      </a>
+                    </>
+                  )}
                 </div>
                 <div className="profile-more-info my-2">
                   <div className="posts-number">
@@ -109,6 +124,11 @@ function Profile() {
         )}
       </div>
       <FollowCard />
+      {isEditModalVisible && (
+        <Modal toggleModal={toggleEditModal} editModal>
+          <EditProfile userProfile={user} toggleModal={toggleEditModal} />
+        </Modal>
+      )}
     </div>
   );
 }
