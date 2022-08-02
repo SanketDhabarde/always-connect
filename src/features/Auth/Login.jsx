@@ -26,8 +26,8 @@ function Login() {
   };
 
   const setDummyUserHandler = () => {
-    setUsername("johndoe");
-    setPassword("johnDoe123");
+    setUsername("SanketDhabarde1");
+    setPassword("sanket123");
   };
 
   return (

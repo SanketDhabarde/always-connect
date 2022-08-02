@@ -25,6 +25,7 @@ function Post({ post }) {
     likes,
     comments,
     createdAt,
+    profileImg,
   } = post;
   const { likeCount, likedBy } = likes;
 
@@ -48,13 +49,15 @@ function Post({ post }) {
   return (
     <div className="card post-card my-2 p-2">
       <div className="post-card-left">
-        <div className="avatar avatar-sm m-1 profile-avatar">
-          <img
-            src="https://i.pravatar.cc/500"
-            alt="avatar"
-            className="img-responsive img-round"
-          />
-        </div>
+        <Link to={`/profile/${username}`}>
+          <div className="avatar avatar-sm m-1 profile-avatar">
+            <img
+              src={profileImg}
+              alt="avatar"
+              className="img-responsive img-round"
+            />
+          </div>
+        </Link>
       </div>
       <div className="post-card-right">
         <div className="post-header">
@@ -103,7 +106,7 @@ function Post({ post }) {
             </div>
           )}
         </div>
-        <Link to={`/posts/${_id}`} className="post-content my-1 btn-link">
+        <Link to={`/posts/${_id}`} className="post-content my-2 btn-link">
           <p>{content}</p>
         </Link>
         {postImage && (
@@ -144,7 +147,7 @@ function Post({ post }) {
           </div>
         </div>
         {likeCount > 0 && (
-          <div className="post-extra-info my-1 ">
+          <div className="post-extra-info my-1">
             <p className="liked-by-user text-gray" onClick={toggleLikedByModal}>
               {likedBy[0]?.username}
               {likeCount > 2

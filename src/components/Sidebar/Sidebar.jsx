@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { useToggle } from "../../hooks";
 import Modal from "../Modal/Modal";
 import Nav from "../Nav/Nav";
@@ -7,6 +8,7 @@ import "./Sidebar.css";
 
 function Sidebar() {
   const [newPostModal, toggleNewPostModal] = useToggle();
+  const { user } = useSelector((state) => state.auth);
 
   return (
     <div className="sidebar-container">
@@ -23,7 +25,7 @@ function Sidebar() {
           icon={<i className="fas fa-bookmark"></i>}
         />
         <Nav
-          link="/profile"
+          link={`/profile/${user.username}`}
           linkName="Profile"
           icon={<i className="fas fa-user"></i>}
         />
