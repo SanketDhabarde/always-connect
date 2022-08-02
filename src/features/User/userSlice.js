@@ -41,6 +41,46 @@ export const editUserProfile = createAsyncThunk(
   }
 );
 
+export const followUser = createAsyncThunk(
+  "user/followUser",
+  async ({ followUserId }, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post(
+        `/api/users/follow/${followUserId}`,
+        {},
+        {
+          headers: {
+            authorization: TOKEN,
+          },
+        }
+      );
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.respose.data);
+    }
+  }
+);
+
+export const unFollowUser = createAsyncThunk(
+  "user/unFollowUser",
+  async ({ followUserId }, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post(
+        `/api/users/unfollow/${followUserId}`,
+        {},
+        {
+          headers: {
+            authorization: TOKEN,
+          },
+        }
+      );
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.respose.data);
+    }
+  }
+);
+
 export const userSlice = createSlice({
   name: "user",
   initialState,
@@ -66,6 +106,20 @@ export const userSlice = createSlice({
     },
     [editUserProfile.rejected]: (state, { payload }) => {
       state.userProfileLoading = false;
+      state.userProfileError = payload;
+    },
+    [followUser.fulfilled]: (state, { payload }) => {
+      const { followUser } = payload;
+      state.userProfile = followUser;
+    },
+    [followUser.rejected]: (state, { payload }) => {
+      state.userProfileError = payload;
+    },
+    [unFollowUser.fulfilled]: (state, { payload }) => {
+      const { followUser } = payload;
+      state.userProfile = followUser;
+    },
+    [unFollowUser.rejected]: (state, { payload }) => {
       state.userProfileError = payload;
     },
   },

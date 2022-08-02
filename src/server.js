@@ -111,9 +111,9 @@ export function makeServer({ environment = "development" } = {}) {
         "/users/remove-bookmark/:postId/",
         removePostFromBookmarkHandler.bind(this)
       );
-      this.post("/users/follow/:followUserId/", followUserHandler.bind(this));
+      this.post("/users/follow/:followUserId", followUserHandler.bind(this));
       this.post(
-        "/users/unfollow/:followUserId/",
+        "/users/unfollow/:followUserId",
         unfollowUserHandler.bind(this)
       );
 

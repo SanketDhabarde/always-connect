@@ -3,8 +3,15 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { FollowCard, Modal, Sidebar, Spinner } from "../../components";
-import { EditProfile, getUserProfile, Post } from "../../features";
+import {
+  EditProfile,
+  followUser,
+  getUserProfile,
+  Post,
+  unFollowUser,
+} from "../../features";
 import { getUserPosts, sortPosts } from "../../features/Posts/utils";
+import { isFollower } from "../../features/User/utils";
 import { useTitle, useToggle } from "../../hooks";
 import "./Profile.css";
 
@@ -17,6 +24,7 @@ function Profile() {
   const dispatch = useDispatch();
   const [isEditModalVisible, toggleEditModal] = useToggle();
   const {
+    _id,
     profileImg,
     username,
     firstName,
@@ -24,6 +32,8 @@ function Profile() {
     profileLink,
     bio,
     profileBanner,
+    followers,
+    following,
   } = userProfile;
   const userPosts = getUserPosts(posts, username);
   const sortedUserPosts = sortPosts(userPosts, "latest");
@@ -42,6 +52,19 @@ function Profile() {
       }
     })();
   }, [userName, dispatch]);
+
+  const userFollowerHandler = async () => {
+    try {
+      const response = isFollower(user, userProfile)
+        ? await dispatch(unFollowUser({ followUserId: _id }))
+        : await dispatch(followUser({ followUserId: _id }));
+      if (response.error) {
+        console.log(response.error);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <div className="container my-2">
@@ -77,8 +100,20 @@ function Profile() {
                     >
                       Edit profile
                     </button>
+                  ) : isFollower(user, userProfile) ? (
+                    <button
+                      className="btn btn-outline-secondary"
+                      onClick={userFollowerHandler}
+                    >
+                      Unfollow
+                    </button>
                   ) : (
-                    <button className="btn btn-outline-primary">Follow</button>
+                    <button
+                      className="btn btn-outline-primary"
+                      onClick={userFollowerHandler}
+                    >
+                      Follow
+                    </button>
                   )}
                 </div>
                 <div className="profile-name my-1">
@@ -92,7 +127,12 @@ function Profile() {
                   {profileLink && (
                     <>
                       <i className="fas fa-link text-gray"></i>
-                      <a href={profileLink} className="link" target="_blank" rel="noreferrer">
+                      <a
+                        href={profileLink}
+                        className="link"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         {profileLink}
                       </a>
                     </>
@@ -103,10 +143,10 @@ function Profile() {
                     {sortedUserPosts.length} posts
                   </div>
                   <div className="follower-number hover-underline">
-                    0 follower
+                    {followers?.length} followers
                   </div>
                   <div className="following-number hover-underline">
-                    0 following
+                    {following?.length} following
                   </div>
                 </div>
               </div>
