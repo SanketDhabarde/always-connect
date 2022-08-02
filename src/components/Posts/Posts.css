@@ -7,3 +7,8 @@
 .container-card.card {
   border: none;
 }
+
+.post-filters{
+  display: flex;
+  justify-content: space-between;
+}
