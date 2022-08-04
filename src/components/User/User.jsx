@@ -1,12 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function User({ user }) {
-  const { username, firstName, lastName } = user;
+  const { username, firstName, lastName, profileImg } = user;
   return (
-    <div className="profile-info">
+    <Link to={`/profile/${username}`} className="profile-info btn-link">
       <div className="avatar avatar-sm m-1 profile-avatar">
         <img
-          src="https://i.pravatar.cc/500"
+          src={profileImg}
           alt="avatar"
           className="img-responsive img-round"
         />
@@ -15,7 +16,7 @@ function User({ user }) {
         <p>{`${firstName} ${lastName}`}</p>
         <small className="text-gray">@{username}</small>
       </div>
-    </div>
+    </Link>
   );
 }
 

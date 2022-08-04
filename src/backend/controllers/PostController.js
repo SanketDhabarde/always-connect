@@ -90,6 +90,7 @@ export const createPostHandler = function (schema, request) {
       username: user.username,
       firstName: user.firstName,
       lastName: user.lastName,
+      profileImg: user.profileImg,
       createdAt: formatDate(),
       updatedAt: formatDate(),
     };

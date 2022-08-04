@@ -1,8 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
+  const { user } = useSelector((state) => state.auth);
+
   return (
     <header className="p-2">
       <div className="header-brand">
@@ -10,16 +13,17 @@ function Navbar() {
           AlwaysConnect
         </Link>
       </div>
-
-      <div className="nav-right center-div">
-        <div className="avatar avatar-sm">
-          <img
-            src="https://i.pravatar.cc/500"
-            alt="avatar"
-            className="img-responsive img-round"
-          />
+      {user && (
+        <div className="nav-right center-div">
+          <Link to={`/profile/${user.username}`} className="avatar avatar-sm">
+            <img
+              src={user.profileImg}
+              alt="avatar"
+              className="img-responsive img-round"
+            />
+          </Link>
         </div>
-      </div>
+      )}
     </header>
   );
 }

@@ -41,3 +41,13 @@ export const sortPosts = (posts, sortBy) => {
       return posts;
   }
 };
+
+/**
+ * @description get the users posts
+ * @param {Array} posts
+ * @param {String} username
+ * @returns {Array} users post
+ */
+export const getUserPosts = (posts, username) => {
+  return posts.filter((post) => post.username === username);
+};

@@ -1,0 +1,35 @@
+.profile-avatar,
+.profile-bannner-image {
+  position: relative;
+}
+
+.profile-edit-icon {
+  position: absolute;
+  right: 0;
+  bottom: 2%;
+}
+
+.banner-edit-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.form-edit {
+  margin-top: 5rem;
+}
+
+.edit-profile-container {
+  height: 70vh;
+  overflow-y: scroll;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edit-form-buttons {
+  display: flex;
+  width: 50%;
+}
