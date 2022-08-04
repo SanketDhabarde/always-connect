@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const initialState = {
   user: null,
@@ -73,4 +74,5 @@ export const authSlice = createSlice({
   },
 });
 
+export const useAuthSlice = () => useSelector((state) => state.auth);
 export const authReducer = authSlice.reducer;

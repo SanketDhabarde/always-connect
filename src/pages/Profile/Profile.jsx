@@ -3,12 +3,14 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { FollowCard, Modal, Sidebar, Spinner } from "../../components";
+import UsersList from "../../components/UsersList/UsersList";
 import {
   EditProfile,
   followUser,
   getUserProfile,
   Post,
   unFollowUser,
+  useUserSlice,
 } from "../../features";
 import { getUserPosts, sortPosts } from "../../features/Posts/utils";
 import { isFollower } from "../../features/User/utils";
@@ -16,13 +18,13 @@ import { useTitle, useToggle } from "../../hooks";
 import "./Profile.css";
 
 function Profile() {
-  const { userProfile, userProfileLoading } = useSelector(
-    (state) => state.user
-  );
+  const { userProfile, userProfileLoading } = useUserSlice();
   const { user } = useSelector((state) => state.auth);
   const { posts } = useSelector((state) => state.posts);
   const dispatch = useDispatch();
   const [isEditModalVisible, toggleEditModal] = useToggle();
+  const [isFollowerModal, toggleFollowerModal] = useToggle();
+  const [isFollowingModal, toggleFollowingModal] = useToggle();
   const {
     _id,
     profileImg,
@@ -140,19 +142,29 @@ function Profile() {
                 </div>
                 <div className="profile-more-info my-2">
                   <div className="posts-number">
-                    {sortedUserPosts.length} posts
+                    {sortedUserPosts?.length} posts
                   </div>
-                  <div className="follower-number hover-underline">
+                  <div
+                    className={`follower-number ${
+                      followers?.length > 0 ? "hover-underline" : ""
+                    }`}
+                    onClick={toggleFollowerModal}
+                  >
                     {followers?.length} followers
                   </div>
-                  <div className="following-number hover-underline">
+                  <div
+                    className={`following-number ${
+                      following?.length > 0 ? "hover-underline" : ""
+                    }`}
+                    onClick={toggleFollowingModal}
+                  >
                     {following?.length} following
                   </div>
                 </div>
               </div>
             </div>
             <div className="posts-listing">
-              {sortedUserPosts.length > 0 ? (
+              {sortedUserPosts?.length > 0 ? (
                 sortedUserPosts.map((post) => (
                   <Post post={post} key={post._id} />
                 ))
@@ -164,6 +176,24 @@ function Profile() {
         )}
       </div>
       <FollowCard />
+      {followers?.length > 0 && isFollowerModal && (
+        <Modal toggleModal={toggleFollowerModal}>
+          <UsersList
+            userList={followers}
+            title="Followers"
+            toggleModal={toggleFollowerModal}
+          />
+        </Modal>
+      )}
+      {following?.length > 0 && isFollowingModal && (
+        <Modal toggleModal={toggleFollowingModal}>
+          <UsersList
+            userList={following}
+            title="Following"
+            toggleModal={toggleFollowingModal}
+          />
+        </Modal>
+      )}
       {isEditModalVisible && (
         <Modal toggleModal={toggleEditModal} editModal>
           <EditProfile userProfile={user} toggleModal={toggleEditModal} />
