@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import NewPost from "../NewPost/NewPost";
 import "./Posts.css";
-import { useDispatch, useSelector } from "react-redux";
-import { getPosts, Post } from "../../features";
+import { useDispatch } from "react-redux";
+import { getPosts, Post, usePostsSlice } from "../../features";
 import { useOnClickOutside } from "../../hooks";
 import { sortPosts } from "../../features/Posts/utils";
 
@@ -13,7 +13,7 @@ const SORT_OPTIONS = [
 ];
 
 function Posts() {
-  const { posts } = useSelector((state) => state.posts);
+  const { posts } = usePostsSlice();
   const [isMenuVisible, setIsMenuVisible] = useState(false);
   const [sortBy, setSortBy] = useState("Latest");
   const dispatch = useDispatch();

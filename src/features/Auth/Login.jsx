@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Input } from "../../components";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import "./Auth.css";
-import { loginUser } from "./authSlice";
+import { loginUser, useAuthSlice } from "./authSlice";
 import { useTitle } from "../../hooks";
 
 function Login() {
@@ -13,7 +13,7 @@ function Login() {
   const [togglePassword, setTogglePassword] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const { authError } = useSelector((state) => state.auth);
+  const { authError } = useAuthSlice();
   const dispatch = useDispatch();
   useTitle("Login");
 

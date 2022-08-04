@@ -3,8 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { Input } from "../../components";
 import "./Auth.css";
 import { useTitle } from "../../hooks";
-import { useDispatch, useSelector } from "react-redux";
-import { signupUser } from "./authSlice";
+import { useDispatch } from "react-redux";
+import { signupUser, useAuthSlice } from "./authSlice";
 
 const signupFormReducer = (state, action) => {
   const { type, payload } = action;
@@ -49,7 +49,7 @@ function Signup() {
   });
   const [togglePassword, setTogglePassword] = useState(false);
   const { username, firstName, lastName, password, confirmPassword } = state;
-  const { authError } = useSelector((state) => state.auth);
+  const { authError } = useAuthSlice();
   const dispatchSignUp = useDispatch();
   const navigate = useNavigate();
   useTitle("Signup");

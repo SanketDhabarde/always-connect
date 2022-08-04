@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useAuthSlice } from "../../features";
 import { useToggle } from "../../hooks";
 import Modal from "../Modal/Modal";
 import Nav from "../Nav/Nav";
@@ -8,7 +8,7 @@ import "./Sidebar.css";
 
 function Sidebar() {
   const [newPostModal, toggleNewPostModal] = useToggle();
-  const { user } = useSelector((state) => state.auth);
+  const { user } = useAuthSlice();
 
   return (
     <div className="sidebar-container">

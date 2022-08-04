@@ -1,9 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
+import { useAuthSlice } from "../features";
 
 function RequiresAuth() {
-  const { user } = useSelector((state) => state.auth);
+  const { user } = useAuthSlice();
   const location = useLocation();
   return user ? (
     <Outlet />

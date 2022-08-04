@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import "./FollowCard.css";
 import { getAllUser, useAuthSlice, useUserSlice } from "../../features";
@@ -24,14 +23,13 @@ function FollowCard() {
         console.log(e);
       }
     })();
-  }, []);
+  }, [dispatch]);
 
   const currUser = allUser?.find((_user) => _user.username === username);
 
   const suggestedUser = allUser
     ?.filter(
-      (_user) =>
-        _user.username !== username && !isFollower(currUser, _user)
+      (_user) => _user.username !== username && !isFollower(currUser, _user)
     )
     .slice(0, 2);
 

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
-import { createPost, editPost } from "../../features";
-import { useDispatch, useSelector } from "react-redux";
+import { createPost, editPost, useAuthSlice } from "../../features";
+import { useDispatch } from "react-redux";
 import Picker from "emoji-picker-react";
 import "./NewPost.css";
 import { useOnClickOutside } from "../../hooks";
@@ -13,7 +13,7 @@ function NewPost({ toggleModal, singlePost }) {
   );
   const [isEmojiPickerVisible, setIsEmojiPickerVisible] = useState(false);
   const [postImage, setPostImage] = useState(singlePost?.postImage);
-  const { user } = useSelector((state) => state.auth);
+  const { user } = useAuthSlice();
   const dispatch = useDispatch();
   const emojiPickerRef = useRef(null);
   useOnClickOutside(emojiPickerRef, () => setIsEmojiPickerVisible(false));

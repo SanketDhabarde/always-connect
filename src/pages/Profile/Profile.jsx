@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { FollowCard, Modal, Sidebar, Spinner } from "../../components";
 import UsersList from "../../components/UsersList/UsersList";
@@ -10,6 +10,8 @@ import {
   getUserProfile,
   Post,
   unFollowUser,
+  useAuthSlice,
+  usePostsSlice,
   useUserSlice,
 } from "../../features";
 import { getUserPosts, sortPosts } from "../../features/Posts/utils";
@@ -19,8 +21,8 @@ import "./Profile.css";
 
 function Profile() {
   const { userProfile, userProfileLoading } = useUserSlice();
-  const { user } = useSelector((state) => state.auth);
-  const { posts } = useSelector((state) => state.posts);
+  const { user } = useAuthSlice();
+  const { posts } = usePostsSlice();
   const dispatch = useDispatch();
   const [isEditModalVisible, toggleEditModal] = useToggle();
   const [isFollowerModal, toggleFollowerModal] = useToggle();

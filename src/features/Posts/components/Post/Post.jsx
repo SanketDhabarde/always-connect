@@ -1,17 +1,18 @@
 import React, { useRef, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Modal, NewPost, User } from "../../../../components";
 import { useOnClickOutside, useToggle } from "../../../../hooks";
 import "./Post.css";
 import { deletePost, dislikePost, likePost } from "../../postsSlice";
 import { getDate, isUserLikedPost } from "../../utils";
+import { useAuthSlice } from "../../../Auth/authSlice";
 
 function Post({ post }) {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
   const [isEditPostModal, toggleEditPostModal] = useToggle();
   const [isLikedByModalVisible, toggleLikedByModal] = useToggle();
-  const { user } = useSelector((state) => state.auth);
+  const { user } = useAuthSlice();
   const dispatch = useDispatch();
   const menuRef = useRef(null);
   useOnClickOutside(menuRef, () => setIsMenuVisible(false));
