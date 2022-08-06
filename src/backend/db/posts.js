@@ -1,4 +1,3 @@
-import { v4 as uuid } from "uuid";
 import { formatDate } from "../utils/authUtils";
 
 /**
@@ -8,7 +7,7 @@ import { formatDate } from "../utils/authUtils";
 
 export const posts = [
   {
-    _id: uuid(),
+    _id: "8b17ab15-df9b-4e5a-b93e-c27c68169276",
     content:
       "Happiness can be found in the darkest of times if one only remembers to turn on the light",
     likes: {
@@ -53,7 +52,7 @@ export const posts = [
     ],
   },
   {
-    _id: uuid(),
+    _id: "0cbac77c-3c0e-463c-b29c-dd6276a75b3a",
     content:
       "Don't complain about the things you are not capable of. But show the world what you are capable of. because life is too short, make the most out of it.",
     likes: {
@@ -85,7 +84,7 @@ export const posts = [
     ],
   },
   {
-    _id: uuid(),
+    _id: "5ed9cc08-f5c5-458c-b26d-09a35b11887b",
     content: "God gives the strongest battles to his strongest soldiers.",
     likes: {
       likeCount: 0,
@@ -142,7 +141,7 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
-    _id: uuid(),
+    _id: "1ea12c9e-dfd6-4b92-9fef-0d9dd3cdf229",
     content:
       "Small aim is a crime. Have a great aim. – Dr. A. P. J. Abdul Kalam",
     likes: {
@@ -200,7 +199,7 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
-    _id: uuid(),
+    _id: "2b71b267-531b-4c97-8dec-b3b4de6607ce",
     content:
       "Magic happens when you don't give up, even though you want to. The universe always falls in love with a stubborn heart.",
     likes: {
@@ -245,7 +244,7 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
-    _id: uuid(),
+    _id: "03adfdbc-62d0-4c44-b585-4ad4b3ff9d5b",
     content:
       "You guys need to enjoy and celebrate learning a lot more. Be genuinely happy that you're crossing milestones every week. Gratitude and happiness gives you a lot more energy to move mountains in life.- Tanay pratap",
     likes: {
@@ -290,7 +289,7 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
-    _id: uuid(),
+    _id: "df250b20-3523-43a1-ad98-563e44465124",
     content:
       "It’s not about whether it’s impossible or not, I’m doing it because I want to.",
     likes: {
