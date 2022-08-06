@@ -40,10 +40,10 @@ function FollowCard() {
       <div className="follow-suggestions p-1">
         {suggestedUser?.length > 0 ? (
           suggestedUser.map((user) => (
-            <>
+            <div key={user._id}>
               <User user={user} />
               <hr className="separator" />
-            </>
+            </div>
           ))
         ) : (
           <div className="center-div text-gray">You followed all the users</div>

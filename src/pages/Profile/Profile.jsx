@@ -39,6 +39,7 @@ function Profile() {
     followers,
     following,
   } = userProfile;
+  
   const userPosts = getUserPosts(posts, username);
   const sortedUserPosts = sortPosts(userPosts, "latest");
   const { username: userName } = useParams();
@@ -63,7 +64,7 @@ function Profile() {
         ? await dispatch(unFollowUser({ followUserId: _id }))
         : await dispatch(followUser({ followUserId: _id }));
       if (response.error) {
-        console.log(response.error);
+        console.log(response);
       }
     } catch (e) {
       console.log(e);

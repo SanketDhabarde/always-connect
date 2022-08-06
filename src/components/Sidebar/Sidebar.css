@@ -2,7 +2,12 @@
   width: 15rem;
 }
 
-.btn-create{
+.btn-create {
   width: 100%;
   margin: 0;
+}
+
+.active {
+  background-color: var(--secondary-color);
+  color: var(--primary-txt);
 }

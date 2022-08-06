@@ -4,6 +4,6 @@
 }
 
 .nav:hover {
-  background-color: var(--primary-color);
-  color: var(--btn-primary-text);
+  background-color: var(--secondary-color);
+  color: var(--primary-txt);
 }
