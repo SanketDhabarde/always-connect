@@ -1,21 +1,34 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { FollowCard, Sidebar } from "../../components";
-import { addComment, Comment, Post, usePostsSlice } from "../../features";
+import { addComment, Comment, Post } from "../../features";
 import { useTitle } from "../../hooks";
 import "./SinglePost.css";
 
 function SinglePost() {
   const [comment, setComment] = useState("");
   const [commentLength, setCommentLength] = useState(200);
-  const { posts } = usePostsSlice();
+  const [selectedPost, setSelectedPost] = useState(null);
   const dispatch = useDispatch();
   const { postId } = useParams();
   const navigate = useNavigate();
   useTitle("Post");
 
-  const selectedPost = posts.find((post) => post._id === postId);
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await axios(`/api/posts/${postId}`);
+        console.log(data);
+        setSelectedPost(data?.post);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
+
   const comments = selectedPost?.comments ?? [];
 
   const commentHandler = (event) => {

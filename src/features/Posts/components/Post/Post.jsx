@@ -67,6 +67,12 @@ function Post({ post }) {
     }
   };
 
+  const sharePostHandler = () => {
+    window.navigator.clipboard.writeText(
+      `${window.location.origin}/posts/${_id}`
+    );
+  };
+
   return (
     <div className="card post-card my-2 p-2">
       <div className="post-card-left">
@@ -160,7 +166,11 @@ function Post({ post }) {
             </Link>
             {comments.length > 0 && <span>{comments.length}</span>}
           </div>
-          <div className="icon center-div" title="Share">
+          <div
+            className="icon center-div"
+            title="Copy link to Share"
+            onClick={sharePostHandler}
+          >
             <i className="fas fa-share-alt"></i>
           </div>
           <div className="post-option">
