@@ -1,5 +1,3 @@
-import { isFollower } from "../User/utils";
-
 /**
  * @description give the formatted date
  * @param {string} date - input date in different format
