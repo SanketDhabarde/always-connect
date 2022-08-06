@@ -58,7 +58,6 @@ export const editUserProfile = createAsyncThunk(
 export const followUser = createAsyncThunk(
   "user/followUser",
   async ({ followUserId }, { rejectWithValue }) => {
-    console.log({followUserId});
     try {
       const { data } = await axios.post(
         `/api/users/follow/${followUserId}`,

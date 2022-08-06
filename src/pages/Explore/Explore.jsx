@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FollowCard, Sidebar } from "../../components";
-import { Post, usePostsSlice } from "../../features";
+import { getPosts, Post, usePostsSlice } from "../../features";
+import { useDispatch } from "react-redux";
 
 function Explore() {
   const { posts } = usePostsSlice();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPosts());
+  }, [dispatch]);
+
   return (
     <div className="container my-2">
       <Sidebar />

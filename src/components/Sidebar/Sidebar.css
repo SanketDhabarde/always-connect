@@ -11,3 +11,15 @@
   background-color: var(--secondary-color);
   color: var(--primary-txt);
 }
+
+.m-0 {
+  margin: 0;
+}
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 55vh;
+  border: 1px solid var(--secondary-color);
+}

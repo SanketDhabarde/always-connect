@@ -39,7 +39,7 @@ function Profile() {
     followers,
     following,
   } = userProfile;
-  
+
   const userPosts = getUserPosts(posts, username);
   const sortedUserPosts = sortPosts(userPosts, "latest");
   const { username: userName } = useParams();
@@ -70,7 +70,7 @@ function Profile() {
       console.log(e);
     }
   };
-
+console.log({user});
   return (
     <div className="container my-2">
       <Sidebar />
