@@ -1,10 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import NewPost from "../NewPost/NewPost";
 import "./Posts.css";
-import { useDispatch, useSelector } from "react-redux";
-import { getPosts, Post } from "../../features";
+import { useDispatch } from "react-redux";
+import {
+  getPosts,
+  Post,
+  useAuthSlice,
+  usePostsSlice,
+  useUserSlice,
+} from "../../features";
 import { useOnClickOutside } from "../../hooks";
-import { sortPosts } from "../../features/Posts/utils";
+import { getUserFeedPosts, sortPosts } from "../../features/Posts/utils";
+import { getCurrentUser } from "../../features/User/utils";
 
 const SORT_OPTIONS = [
   { _id: "1", icon: <i className="fas fa-arrow-up"></i>, title: "Latest" },
@@ -13,7 +20,9 @@ const SORT_OPTIONS = [
 ];
 
 function Posts() {
-  const { posts } = useSelector((state) => state.posts);
+  const { posts } = usePostsSlice();
+  const { user } = useAuthSlice();
+  const { allUser } = useUserSlice();
   const [isMenuVisible, setIsMenuVisible] = useState(false);
   const [sortBy, setSortBy] = useState("Latest");
   const dispatch = useDispatch();
@@ -28,8 +37,10 @@ function Posts() {
     setIsMenuVisible((prevState) => !prevState);
   };
 
-  const sortedPosts = sortPosts(posts, sortBy);
-  
+  const currUser = getCurrentUser(allUser, user?.username);
+  const userFeedPosts = getUserFeedPosts(posts, currUser);
+  const sortedPosts = sortPosts(userFeedPosts, sortBy);
+
   return (
     <div className="card container-card px-3">
       <NewPost />
@@ -65,9 +76,13 @@ function Posts() {
         </div>
       </div>
       <div className="posts-listing">
-        {sortedPosts.map((post) => (
-          <Post post={post} key={post._id} />
-        ))}
+        {sortedPosts.length > 0 ? (
+          sortedPosts.map((post) => <Post post={post} key={post._id} />)
+        ) : (
+          <div className="center-div text-gray">
+            Follow users to see their posts
+          </div>
+        )}
       </div>
     </div>
   );

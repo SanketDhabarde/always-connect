@@ -1,14 +1,15 @@
 import React, { useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useOnClickOutside, useToggle } from "../../../../hooks";
+import { useAuthSlice } from "../../../Auth/authSlice";
 import { deleteComment, editComment } from "../../postsSlice";
 import { getDate } from "../../utils";
 import "./Comment.css";
 
 function Comment({ comment, postId }) {
   const { _id, text, username, createdAt, profileImg } = comment;
-  const { user } = useSelector((state) => state.auth);
+  const { user } = useAuthSlice();
   const dispatch = useDispatch();
   const [isMenuVisible, setIsMenuVisible] = useState(false);
   const [newComment, setNewComment] = useState(text);

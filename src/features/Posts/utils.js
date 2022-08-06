@@ -51,3 +51,17 @@ export const sortPosts = (posts, sortBy) => {
 export const getUserPosts = (posts, username) => {
   return posts.filter((post) => post.username === username);
 };
+
+/**
+ * @description get user's posts + user's following user posts
+ * @param {Array} posts
+ * @param {Object} user
+ * @returns {Array} user feed posts
+ */
+export const getUserFeedPosts = (posts, user) => {
+  return posts?.filter(
+    (post) =>
+      post.username === user?.username ||
+      user?.following.some((_user) => _user.username === post.username)
+  );
+};

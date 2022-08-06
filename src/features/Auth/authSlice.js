@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const initialState = {
   user: null,
@@ -42,6 +43,12 @@ export const signupUser = createAsyncThunk(
 export const authSlice = createSlice({
   name: "auth",
   initialState,
+  reducers: {
+    logOut: (state) => {
+      state.user = null;
+      localStorage.clear();
+    },
+  },
   extraReducers: {
     [loginUser.pending]: (state) => {
       state.authStatus = "loading";
@@ -73,4 +80,6 @@ export const authSlice = createSlice({
   },
 });
 
+export const { logOut } = authSlice.actions;
+export const useAuthSlice = () => useSelector((state) => state.auth);
 export const authReducer = authSlice.reducer;

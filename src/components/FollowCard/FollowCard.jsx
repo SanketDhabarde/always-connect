@@ -1,53 +1,53 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import "./FollowCard.css";
+import { getAllUser, useAuthSlice, useUserSlice } from "../../features";
+import User from "../User/User";
+import { isFollower } from "../../features/User/utils";
 
 function FollowCard() {
+  const { allUser } = useUserSlice();
+  const {
+    user: { username },
+  } = useAuthSlice();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await dispatch(getAllUser());
+        if (response.error) {
+          console.log(response.error);
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    })();
+  }, [dispatch]);
+
+  const currUser = allUser?.find((_user) => _user.username === username);
+
+  const suggestedUser = allUser
+    ?.filter(
+      (_user) => _user.username !== username && !isFollower(currUser, _user)
+    )
+    .slice(0, 2);
+
   return (
     <div className="card sidebar card-suggestion">
       <h4 className="p-1 text-center">Suggestions to follow</h4>
       <hr className="separator" />
-      <div className="follow-suggestions">
-        <div className="follow-suggestion p-1">
-          <div className="profile-info">
-            <div className="avatar avatar-sm m-1 profile-avatar">
-              <img
-                src="https://i.pravatar.cc/500"
-                alt="avatar"
-                className="img-responsive img-round"
-              />
+      <div className="follow-suggestions p-1">
+        {suggestedUser?.length > 0 ? (
+          suggestedUser.map((user) => (
+            <div key={user._id}>
+              <User user={user} />
+              <hr className="separator" />
             </div>
-            <div className="profile-name">
-              <p>John Doe</p>
-              <small className="text-gray">@johndoe</small>
-            </div>
-          </div>
-          <div className="follow-btn">
-            <Link to="#" className="btn-underline">
-              Follow +{" "}
-            </Link>
-          </div>
-        </div>
-        <div className="follow-suggestion p-1">
-          <div className="profile-info">
-            <div className="avatar avatar-sm m-1 profile-avatar">
-              <img
-                src="https://i.pravatar.cc/500"
-                alt="avatar"
-                className="img-responsive img-round"
-              />
-            </div>
-            <div className="profile-name">
-              <p>John Doe</p>
-              <small className="text-gray">@johndoe</small>
-            </div>
-          </div>
-          <div className="follow-btn">
-            <Link to="#" className="btn-underline">
-              Follow +{" "}
-            </Link>
-          </div>
-        </div>
+          ))
+        ) : (
+          <div className="center-div text-gray">You followed all the users</div>
+        )}
       </div>
     </div>
   );

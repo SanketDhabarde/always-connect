@@ -52,9 +52,6 @@ export function makeServer({ environment = "development" } = {}) {
       users.forEach((item) =>
         server.create("user", {
           ...item,
-          followers: [],
-          following: [],
-          bookmarks: [],
         })
       );
       posts.forEach((item) => server.create("post", { ...item }));
@@ -111,9 +108,9 @@ export function makeServer({ environment = "development" } = {}) {
         "/users/remove-bookmark/:postId/",
         removePostFromBookmarkHandler.bind(this)
       );
-      this.post("/users/follow/:followUserId/", followUserHandler.bind(this));
+      this.post("/users/follow/:followUserId", followUserHandler.bind(this));
       this.post(
-        "/users/unfollow/:followUserId/",
+        "/users/unfollow/:followUserId",
         unfollowUserHandler.bind(this)
       );
 
