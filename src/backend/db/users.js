@@ -7,7 +7,7 @@ import { formatDate } from "../utils/authUtils";
 
 export const users = [
   {
-    _id: uuid(),
+    _id: "057c0b1e-84d1-44e3-b35a-382799476db1",
     firstName: "John",
     lastName: "Doe",
     username: "johndoe",
@@ -21,7 +21,7 @@ export const users = [
     bookmarks: [],
     following: [
       {
-        _id: uuid(),
+        _id: "c34c7dc7-968a-4d63-b583-667c4b3bf514",
         firstName: "Adarsh",
         lastName: "Balika",
         username: "adarshbalika",
@@ -29,7 +29,7 @@ export const users = [
           "https://res.cloudinary.com/dphfdaqls/image/upload/v1659105639/ktspc9duwa7ei3emgru8.jpg",
       },
       {
-        _id: uuid(),
+        _id: "2bb62a88-501f-4dab-80e7-cdde72684cf0",
         firstName: "Sanket",
         lastName: "Dhabarde",
         username: "SanketDhabarde1",
@@ -41,7 +41,7 @@ export const users = [
     updatedAt: formatDate(),
   },
   {
-    _id: uuid(),
+    _id: "c34c7dc7-968a-4d63-b583-667c4b3bf514",
     firstName: "Adarsh",
     lastName: "Balika",
     username: "adarshbalika",
@@ -55,7 +55,7 @@ export const users = [
     followers: [],
     following: [
       {
-        _id: uuid(),
+        _id: "c30517bf-c371-4629-9379-e7c91eab9050",
         firstName: "Dan",
         lastName: "Abramov",
         username: "dan_abramov",
@@ -68,7 +68,7 @@ export const users = [
     updatedAt: formatDate(),
   },
   {
-    _id: uuid(),
+    _id: "c30517bf-c371-4629-9379-e7c91eab9050",
     firstName: "Dan",
     lastName: "Abramov",
     username: "dan_abramov",
@@ -81,7 +81,7 @@ export const users = [
     bio: "I don't know anything else",
     followers: [
       {
-        _id: uuid(),
+        _id: "2bb62a88-501f-4dab-80e7-cdde72684cf0",
         firstName: "Sanket",
         lastName: "Dhabarde",
         username: "SanketDhabarde1",
@@ -89,7 +89,7 @@ export const users = [
           "https://res.cloudinary.com/dphfdaqls/image/upload/v1659091879/hr0edyse7v3z4f8mlw7k.jpg",
       },
       {
-        _id: uuid(),
+        _id: "c34c7dc7-968a-4d63-b583-667c4b3bf514",
         firstName: "Adarsh",
         lastName: "Balika",
         username: "adarshbalika",
@@ -103,7 +103,7 @@ export const users = [
     updatedAt: formatDate(),
   },
   {
-    _id: uuid(),
+    _id: "b293462c-1cff-45c3-917d-3bef86885900",
     firstName: "Monkey D.",
     lastName: "Luffy",
     username: "one_piece",
@@ -115,7 +115,7 @@ export const users = [
     bio: "Future pirate king",
     followers: [
       {
-        _id: uuid(),
+        _id: "2bb62a88-501f-4dab-80e7-cdde72684cf0",
         firstName: "Sanket",
         lastName: "Dhabarde",
         username: "SanketDhabarde1",
@@ -129,7 +129,7 @@ export const users = [
     updatedAt: formatDate(),
   },
   {
-    _id: uuid(),
+    _id: "2bb62a88-501f-4dab-80e7-cdde72684cf0",
     firstName: "Sanket",
     lastName: "Dhabarde",
     username: "SanketDhabarde1",
@@ -144,7 +144,7 @@ export const users = [
     bookmarks: [],
     following: [
       {
-        _id: uuid(),
+        _id: "c30517bf-c371-4629-9379-e7c91eab9050",
         firstName: "Dan",
         lastName: "Abramov",
         username: "dan_abramov",
@@ -152,7 +152,7 @@ export const users = [
           "https://res.cloudinary.com/dphfdaqls/image/upload/v1659703122/zlbflx2ceqhhdcsq6m3d.jpg",
       },
       {
-        _id: uuid(),
+        _id: "b293462c-1cff-45c3-917d-3bef86885900",
         username: "one_piece",
         firstName: "Monkey D.",
         lastName: "Luffy",

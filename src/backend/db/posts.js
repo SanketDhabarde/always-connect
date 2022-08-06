@@ -25,7 +25,7 @@ export const posts = [
     updatedAt: formatDate(),
     comments: [
       {
-        _id: uuid(),
+        _id: "b293462c-1cff-45c3-917d-3bef86885900",
         username: "one_piece",
         text: "Interesting",
         votes: {
@@ -38,7 +38,7 @@ export const posts = [
         updatedAt: formatDate(),
       },
       {
-        _id: uuid(),
+        _id: "057c0b1e-84d1-44e3-b35a-382799476db1",
         username: "johndoe",
         text: "Cool",
         votes: {
@@ -70,7 +70,7 @@ export const posts = [
     updatedAt: formatDate(),
     comments: [
       {
-        _id: uuid(),
+        _id: "057c0b1e-84d1-44e3-b35a-382799476db1",
         username: "johndoe",
         text: "Cool",
         votes: {
@@ -99,7 +99,7 @@ export const posts = [
       "https://res.cloudinary.com/dphfdaqls/image/upload/v1659708461/gdsypz2hgecgvq8cibvq.jpg",
     comments: [
       {
-        _id: uuid(),
+        _id: "b293462c-1cff-45c3-917d-3bef86885900",
         username: "one_piece",
         text: "Interesting",
         votes: {
@@ -112,7 +112,7 @@ export const posts = [
         updatedAt: formatDate(),
       },
       {
-        _id: uuid(),
+        _id: "c34c7dc7-968a-4d63-b583-667c4b3bf514",
         username: "adarshbalika",
         text: "Wow!",
         votes: {
@@ -125,7 +125,7 @@ export const posts = [
         updatedAt: formatDate(),
       },
       {
-        _id: uuid(),
+        _id: "057c0b1e-84d1-44e3-b35a-382799476db1",
         username: "johndoe",
         text: "Hilarious",
         votes: {
@@ -157,7 +157,7 @@ export const posts = [
       "https://res.cloudinary.com/dphfdaqls/image/upload/v1659708461/gdsypz2hgecgvq8cibvq.jpg",
     comments: [
       {
-        _id: uuid(),
+        _id: "b293462c-1cff-45c3-917d-3bef86885900",
         username: "one_piece",
         text: "Interesting",
         votes: {
@@ -170,7 +170,7 @@ export const posts = [
         updatedAt: formatDate(),
       },
       {
-        _id: uuid(),
+        _id: "c34c7dc7-968a-4d63-b583-667c4b3bf514",
         username: "adarshbalika",
         text: "Wow!",
         votes: {
@@ -183,7 +183,7 @@ export const posts = [
         updatedAt: formatDate(),
       },
       {
-        _id: uuid(),
+        _id: "057c0b1e-84d1-44e3-b35a-382799476db1",
         username: "johndoe",
         text: "Sir",
         votes: {
@@ -215,7 +215,7 @@ export const posts = [
       "https://res.cloudinary.com/dphfdaqls/image/upload/v1659091879/hr0edyse7v3z4f8mlw7k.jpg",
     comments: [
       {
-        _id: uuid(),
+        _id: "b293462c-1cff-45c3-917d-3bef86885900",
         username: "one_piece",
         text: "Agree",
         votes: {
@@ -228,7 +228,7 @@ export const posts = [
         updatedAt: formatDate(),
       },
       {
-        _id: uuid(),
+        _id: "057c0b1e-84d1-44e3-b35a-382799476db1",
         username: "johndoe",
         text: "Dattebayo",
         votes: {
@@ -260,7 +260,7 @@ export const posts = [
       "https://res.cloudinary.com/dphfdaqls/image/upload/v1659091879/hr0edyse7v3z4f8mlw7k.jpg",
     comments: [
       {
-        _id: uuid(),
+        _id: "b293462c-1cff-45c3-917d-3bef86885900",
         username: "one_piece",
         text: "Golden words",
         votes: {
@@ -273,7 +273,7 @@ export const posts = [
         updatedAt: formatDate(),
       },
       {
-        _id: uuid(),
+        _id: "057c0b1e-84d1-44e3-b35a-382799476db1",
         username: "johndoe",
         text: "tanay bhaiya ♥",
         votes: {
@@ -305,7 +305,7 @@ export const posts = [
       "https://res.cloudinary.com/dphfdaqls/image/upload/v1659708461/gdsypz2hgecgvq8cibvq.jpg",
     comments: [
       {
-        _id: uuid(),
+        _id: "c34c7dc7-968a-4d63-b583-667c4b3bf514",
         username: "adarshbalika",
         text: "Wow!",
         votes: {
@@ -318,7 +318,7 @@ export const posts = [
         updatedAt: formatDate(),
       },
       {
-        _id: uuid(),
+        _id: "057c0b1e-84d1-44e3-b35a-382799476db1",
         username: "johndoe",
         text: "Pirate king",
         votes: {
