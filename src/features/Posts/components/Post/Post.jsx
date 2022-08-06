@@ -7,12 +7,19 @@ import "./Post.css";
 import { deletePost, dislikePost, likePost } from "../../postsSlice";
 import { getDate, isUserLikedPost } from "../../utils";
 import { useAuthSlice } from "../../../Auth/authSlice";
+import { isBookmarked } from "../../../User/utils";
+import {
+  addPostToBookmarks,
+  removePostFromBookmarks,
+  useUserSlice,
+} from "../../../User/userSlice";
 
 function Post({ post }) {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
   const [isEditPostModal, toggleEditPostModal] = useToggle();
   const [isLikedByModalVisible, toggleLikedByModal] = useToggle();
   const { user } = useAuthSlice();
+  const { bookmarkedPosts } = useUserSlice();
   const dispatch = useDispatch();
   const menuRef = useRef(null);
   useOnClickOutside(menuRef, () => setIsMenuVisible(false));
@@ -39,6 +46,19 @@ function Post({ post }) {
       const res = isUserLikedPost(user, likedBy)
         ? await dispatch(dislikePost({ postId: _id }))
         : await dispatch(likePost({ postId: _id }));
+      if (res?.error) {
+        console.log(res.error);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const bookmarkHandler = async () => {
+    try {
+      const res = isBookmarked(bookmarkedPosts, _id)
+        ? await dispatch(removePostFromBookmarks({ postId: _id }))
+        : await dispatch(addPostToBookmarks({ postId: _id }));
       if (res?.error) {
         console.log(res.error);
       }
@@ -143,8 +163,18 @@ function Post({ post }) {
           <div className="icon center-div" title="Share">
             <i className="fas fa-share-alt"></i>
           </div>
-          <div className="icon center-div" title="Bookmark">
-            <i className="far fa-bookmark"></i>
+          <div className="post-option">
+            <div
+              className="icon center-div"
+              onClick={bookmarkHandler}
+              title="Bookmark"
+            >
+              {isBookmarked(bookmarkedPosts, _id) ? (
+                <i className="fas fa-bookmark icon-liked"></i>
+              ) : (
+                <i className="far fa-bookmark"></i>
+              )}
+            </div>
           </div>
         </div>
         {likeCount > 0 && (
