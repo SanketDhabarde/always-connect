@@ -51,7 +51,16 @@ export const users = [
     profileBanner:
       "https://res.cloudinary.com/dphfdaqls/image/upload/v1659158279/xixyo07shtqhfuocbuac.webp",
     bio: "I am from neog level 0, I exists because of Tanay bhaiya.",
-    followers: [],
+    followers: [
+      {
+        _id: "057c0b1e-84d1-44e3-b35a-382799476db1",
+        firstName: "John",
+        lastName: "Doe",
+        username: "johndoe",
+        profileImg:
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
+      },
+    ],
     following: [
       {
         _id: "c30517bf-c371-4629-9379-e7c91eab9050",
@@ -139,7 +148,16 @@ export const users = [
     profileBanner:
       "https://res.cloudinary.com/dphfdaqls/image/upload/v1659158279/xixyo07shtqhfuocbuac.webp",
     bio: "Associate Software Engineer @clarivate | Frontend Developer |  @neogcamp'22",
-    followers: [],
+    followers: [
+      {
+        _id: "057c0b1e-84d1-44e3-b35a-382799476db1",
+        firstName: "John",
+        lastName: "Doe",
+        username: "johndoe",
+        profileImg:
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
+      },
+    ],
     bookmarks: [],
     following: [
       {
