@@ -70,7 +70,7 @@ function Profile() {
       console.log(e);
     }
   };
-console.log({user});
+
   return (
     <div className="container my-2">
       <Sidebar />
