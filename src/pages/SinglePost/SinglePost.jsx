@@ -27,7 +27,7 @@ function SinglePost() {
         console.log(error);
       }
     })();
-  }, []);
+  }, [postId]);
 
   const comments = selectedPost?.comments ?? [];
 
