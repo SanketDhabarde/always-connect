@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { FollowCard, Sidebar } from "../../components";
-import { addComment, Comment, Post } from "../../features";
+import { addComment, Comment, Post, usePostsSlice } from "../../features";
 import { useTitle } from "../../hooks";
 import "./SinglePost.css";
 
 function SinglePost() {
   const [comment, setComment] = useState("");
   const [commentLength, setCommentLength] = useState(200);
-  const { posts } = useSelector((state) => state.posts);
+  const { posts } = usePostsSlice();
   const dispatch = useDispatch();
   const { postId } = useParams();
   const navigate = useNavigate();

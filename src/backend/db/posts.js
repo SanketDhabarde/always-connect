@@ -25,29 +25,61 @@ export const posts = [
     updatedAt: formatDate(),
     comments: [
       {
-        _id: uuid(),
-        username: "shubhamsoni",
+        _id: "b293462c-1cff-45c3-917d-3bef86885900",
+        username: "one_piece",
         text: "Interesting",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
         },
         profileImg:
-          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659105605/hzalfmyprdjhuxkzdydq.jpg",
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659708461/gdsypz2hgecgvq8cibvq.jpg",
         createdAt: new Date("May 12, 2022 20:10:05"),
         updatedAt: formatDate(),
       },
       {
-        _id: uuid(),
-        username: "adarshbalika",
-        text: "Wow!",
+        _id: "057c0b1e-84d1-44e3-b35a-382799476db1",
+        username: "johndoe",
+        text: "Cool",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
         },
         profileImg:
-          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659105639/ktspc9duwa7ei3emgru8.jpg",
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
         createdAt: new Date("May 12, 2022 20:10:05"),
+        updatedAt: formatDate(),
+      },
+    ],
+  },
+  {
+    _id: uuid(),
+    content:
+      "Don't complain about the things you are not capable of. But show the world what you are capable of. because life is too short, make the most out of it.",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "adarshbalika",
+    firstName: "Adarsh",
+    lastName: "Balika",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659105639/ktspc9duwa7ei3emgru8.jpg",
+    createdAt: new Date("January 12, 2022 20:10:05"),
+    updatedAt: formatDate(),
+    comments: [
+      {
+        _id: "057c0b1e-84d1-44e3-b35a-382799476db1",
+        username: "johndoe",
+        text: "Cool",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+        profileImg:
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
+        createdAt: new Date("January 12, 2022 20:10:05"),
         updatedAt: formatDate(),
       },
     ],
@@ -60,27 +92,27 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    username: "shubhamsoni",
-    firstName: "Shubham",
-    lastName: "Soni",
+    username: "one_piece",
+    firstName: "Monkey D.",
+    lastName: "Luffy",
     profileImg:
-      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659105605/hzalfmyprdjhuxkzdydq.jpg",
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659708461/gdsypz2hgecgvq8cibvq.jpg",
     comments: [
       {
-        _id: uuid(),
-        username: "shubhamsoni",
+        _id: "b293462c-1cff-45c3-917d-3bef86885900",
+        username: "one_piece",
         text: "Interesting",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
         },
         profileImg:
-          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659105605/hzalfmyprdjhuxkzdydq.jpg",
-        createdAt: new Date("February 11 2021 08:06:17"),
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659708461/gdsypz2hgecgvq8cibvq.jpg",
+        createdAt: new Date("February 11 2022 08:06:17"),
         updatedAt: formatDate(),
       },
       {
-        _id: uuid(),
+        _id: "c34c7dc7-968a-4d63-b583-667c4b3bf514",
         username: "adarshbalika",
         text: "Wow!",
         votes: {
@@ -89,11 +121,217 @@ export const posts = [
         },
         profileImg:
           "https://res.cloudinary.com/dphfdaqls/image/upload/v1659105639/ktspc9duwa7ei3emgru8.jpg",
-        createdAt: new Date("February 11 2021 08:06:17"),
+        createdAt: new Date("February 11 2022 08:06:17"),
+        updatedAt: formatDate(),
+      },
+      {
+        _id: "057c0b1e-84d1-44e3-b35a-382799476db1",
+        username: "johndoe",
+        text: "Hilarious",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+        profileImg:
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
+        createdAt: new Date("May 12, 2022 20:10:05"),
         updatedAt: formatDate(),
       },
     ],
-    createdAt: new Date("February 11 2021 08:06:17"),
+    createdAt: new Date("February 11 2022 08:06:17"),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    content:
+      "Small aim is a crime. Have a great aim. – Dr. A. P. J. Abdul Kalam",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "one_piece",
+    firstName: "Monkey D.",
+    lastName: "Luffy",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659708461/gdsypz2hgecgvq8cibvq.jpg",
+    comments: [
+      {
+        _id: "b293462c-1cff-45c3-917d-3bef86885900",
+        username: "one_piece",
+        text: "Interesting",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+        profileImg:
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659708461/gdsypz2hgecgvq8cibvq.jpg",
+        createdAt: new Date("February 11 2022 08:06:17"),
+        updatedAt: formatDate(),
+      },
+      {
+        _id: "c34c7dc7-968a-4d63-b583-667c4b3bf514",
+        username: "adarshbalika",
+        text: "Wow!",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+        profileImg:
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659105639/ktspc9duwa7ei3emgru8.jpg",
+        createdAt: new Date("February 11 2022 08:06:17"),
+        updatedAt: formatDate(),
+      },
+      {
+        _id: "057c0b1e-84d1-44e3-b35a-382799476db1",
+        username: "johndoe",
+        text: "Sir",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+        profileImg:
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
+        createdAt: new Date("May 12, 2022 20:10:05"),
+        updatedAt: formatDate(),
+      },
+    ],
+    createdAt: new Date("February 11 2022 08:06:17"),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    content:
+      "Magic happens when you don't give up, even though you want to. The universe always falls in love with a stubborn heart.",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "SanketDhabarde1",
+    firstName: "Sanket",
+    lastName: "Dhabarde",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659091879/hr0edyse7v3z4f8mlw7k.jpg",
+    comments: [
+      {
+        _id: "b293462c-1cff-45c3-917d-3bef86885900",
+        username: "one_piece",
+        text: "Agree",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+        profileImg:
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659708461/gdsypz2hgecgvq8cibvq.jpg",
+        createdAt: new Date("February 13 2022 08:06:17"),
+        updatedAt: formatDate(),
+      },
+      {
+        _id: "057c0b1e-84d1-44e3-b35a-382799476db1",
+        username: "johndoe",
+        text: "Dattebayo",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+        profileImg:
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
+        createdAt: new Date("May 12, 2022 20:10:05"),
+        updatedAt: formatDate(),
+      },
+    ],
+    createdAt: new Date("February 13 2022 08:06:17"),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    content:
+      "You guys need to enjoy and celebrate learning a lot more. Be genuinely happy that you're crossing milestones every week. Gratitude and happiness gives you a lot more energy to move mountains in life.- Tanay pratap",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "SanketDhabarde1",
+    firstName: "Sanket",
+    lastName: "Dhabarde",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659091879/hr0edyse7v3z4f8mlw7k.jpg",
+    comments: [
+      {
+        _id: "b293462c-1cff-45c3-917d-3bef86885900",
+        username: "one_piece",
+        text: "Golden words",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+        profileImg:
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659708461/gdsypz2hgecgvq8cibvq.jpg",
+        createdAt: new Date("August 5 2022 09:12:17"),
+        updatedAt: formatDate(),
+      },
+      {
+        _id: "057c0b1e-84d1-44e3-b35a-382799476db1",
+        username: "johndoe",
+        text: "tanay bhaiya ♥",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+        profileImg:
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
+        createdAt: new Date("August 4 2022 10:12:17"),
+        updatedAt: formatDate(),
+      },
+    ],
+    createdAt: new Date("August 4 2022 09:12:1"),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    content:
+      "It’s not about whether it’s impossible or not, I’m doing it because I want to.",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "one_piece",
+    firstName: "Monkey D.",
+    lastName: "Luffy",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659708461/gdsypz2hgecgvq8cibvq.jpg",
+    comments: [
+      {
+        _id: "c34c7dc7-968a-4d63-b583-667c4b3bf514",
+        username: "adarshbalika",
+        text: "Wow!",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+        profileImg:
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659105639/ktspc9duwa7ei3emgru8.jpg",
+        createdAt: new Date("March 11 2022 08:06:17"),
+        updatedAt: formatDate(),
+      },
+      {
+        _id: "057c0b1e-84d1-44e3-b35a-382799476db1",
+        username: "johndoe",
+        text: "Pirate king",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+        profileImg:
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
+        createdAt: new Date("March 12, 2022 20:10:05"),
+        updatedAt: formatDate(),
+      },
+    ],
+    createdAt: new Date("March 10 2022 08:06:17"),
     updatedAt: formatDate(),
   },
 ];

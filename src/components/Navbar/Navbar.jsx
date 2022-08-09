@@ -1,10 +1,10 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useAuthSlice } from "../../features";
 import "./Navbar.css";
 
 function Navbar() {
-  const { user } = useSelector((state) => state.auth);
+  const { user } = useAuthSlice();
 
   return (
     <header className="p-2">
