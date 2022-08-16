@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 const initialState = {
   posts: [],
+  postLoading: false,
 };
 
 export const getPosts = createAsyncThunk(
@@ -179,11 +180,16 @@ export const postsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
+    [getPosts.pending]: (state) => {
+      state.postLoading = true;
+    },
     [getPosts.fulfilled]: (state, { payload }) => {
       state.posts = payload;
+      state.postLoading = false;
     },
-    [getPosts.rejected]: (_, { payload }) => {
+    [getPosts.rejected]: (state, { payload }) => {
       console.log(payload);
+      state.postLoading = false;
     },
     [createPost.fulfilled]: (state, { payload }) => {
       state.posts = payload;
