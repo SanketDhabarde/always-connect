@@ -1,12 +1,12 @@
 import React from "react";
-import { FollowCard, Sidebar } from "../../components";
+import { FollowCard, Sidebar, Spinner } from "../../components";
 import { useDispatch } from "react-redux";
 import { getBookMarkedPosts, Post, useUserSlice } from "../../features";
 import { useTitle } from "../../hooks";
 import { useEffect } from "react";
 
 function Bookmark() {
-  const { bookmarkedPosts } = useUserSlice();
+  const { bookmarkedPosts, bookmarkedPostsLoading } = useUserSlice();
   const dispatch = useDispatch();
   useTitle("Bookmark");
 
@@ -18,15 +18,21 @@ function Bookmark() {
     <div className="container my-2">
       <Sidebar />
       <div className="card container-card px-3">
-        <div className="posts-listing">
-          {bookmarkedPosts.length > 0 ? (
-            bookmarkedPosts?.map((post) => <Post post={post} key={post._id} />)
-          ) : (
-            <div className="center-div text-gray">
-              You have no bookmarked posts
-            </div>
-          )}
-        </div>
+        {bookmarkedPostsLoading ? (
+          <Spinner />
+        ) : (
+          <div className="posts-listing">
+            {bookmarkedPosts.length > 0 ? (
+              bookmarkedPosts?.map((post) => (
+                <Post post={post} key={post._id} />
+              ))
+            ) : (
+              <div className="center-div text-gray">
+                You have no bookmarked posts
+              </div>
+            )}
+          </div>
+        )}
       </div>
       <FollowCard />
     </div>
