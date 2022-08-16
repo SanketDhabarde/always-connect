@@ -6,8 +6,6 @@ const initialState = {
   posts: [],
 };
 
-const TOKEN = localStorage.getItem("token");
-
 export const getPosts = createAsyncThunk(
   "posts/getPosts",
   async (_, { rejectWithValue }) => {
@@ -29,7 +27,7 @@ export const createPost = createAsyncThunk(
         { postData },
         {
           headers: {
-            authorization: TOKEN,
+            authorization: localStorage.getItem("token"),
           },
         }
       );
@@ -49,7 +47,7 @@ export const editPost = createAsyncThunk(
         { postData },
         {
           headers: {
-            authorization: TOKEN,
+            authorization: localStorage.getItem("token"),
           },
         }
       );
@@ -66,7 +64,7 @@ export const deletePost = createAsyncThunk(
     try {
       const { data } = await axios.delete(`/api/posts/${postId}`, {
         headers: {
-          authorization: TOKEN,
+          authorization: localStorage.getItem("token"),
         },
       });
       return data.posts;
@@ -85,7 +83,7 @@ export const likePost = createAsyncThunk(
         {},
         {
           headers: {
-            authorization: TOKEN,
+            authorization: localStorage.getItem("token"),
           },
         }
       );
@@ -105,7 +103,7 @@ export const dislikePost = createAsyncThunk(
         {},
         {
           headers: {
-            authorization: TOKEN,
+            authorization: localStorage.getItem("token"),
           },
         }
       );
@@ -125,7 +123,7 @@ export const addComment = createAsyncThunk(
         { commentData },
         {
           headers: {
-            authorization: TOKEN,
+            authorization: localStorage.getItem("token"),
           },
         }
       );
@@ -145,7 +143,7 @@ export const editComment = createAsyncThunk(
         { commentData },
         {
           headers: {
-            authorization: TOKEN,
+            authorization: localStorage.getItem("token"),
           },
         }
       );
@@ -165,7 +163,7 @@ export const deleteComment = createAsyncThunk(
         {},
         {
           headers: {
-            authorization: TOKEN,
+            authorization: localStorage.getItem("token"),
           },
         }
       );
