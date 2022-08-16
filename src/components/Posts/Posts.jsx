@@ -12,6 +12,7 @@ import {
 import { useOnClickOutside } from "../../hooks";
 import { getUserFeedPosts, sortPosts } from "../../features/Posts/utils";
 import { getCurrentUser } from "../../features/User/utils";
+import Spinner from "../Spinner/Spinner";
 
 const SORT_OPTIONS = [
   { _id: "1", icon: <i className="fas fa-arrow-up"></i>, title: "Latest" },
@@ -20,7 +21,7 @@ const SORT_OPTIONS = [
 ];
 
 function Posts() {
-  const { posts } = usePostsSlice();
+  const { posts, postLoading } = usePostsSlice();
   const { user } = useAuthSlice();
   const { allUser } = useUserSlice();
   const [isMenuVisible, setIsMenuVisible] = useState(false);
@@ -75,15 +76,19 @@ function Posts() {
           )}
         </div>
       </div>
-      <div className="posts-listing">
-        {sortedPosts.length > 0 ? (
-          sortedPosts.map((post) => <Post post={post} key={post._id} />)
-        ) : (
-          <div className="center-div text-gray">
-            Follow users to see their posts
-          </div>
-        )}
-      </div>
+      {postLoading ? (
+        <Spinner />
+      ) : (
+        <div className="posts-listing">
+          {sortedPosts.length > 0 ? (
+            sortedPosts.map((post) => <Post post={post} key={post._id} />)
+          ) : (
+            <div className="center-div text-gray">
+              Follow users to see their posts
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
