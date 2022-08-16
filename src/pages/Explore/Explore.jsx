@@ -2,10 +2,12 @@ import React, { useEffect } from "react";
 import { FollowCard, Sidebar } from "../../components";
 import { getPosts, Post, usePostsSlice } from "../../features";
 import { useDispatch } from "react-redux";
+import { useTitle } from "../../hooks";
 
 function Explore() {
   const { posts } = usePostsSlice();
   const dispatch = useDispatch();
+  useTitle("Explore");
 
   useEffect(() => {
     dispatch(getPosts());

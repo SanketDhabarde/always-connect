@@ -17,3 +17,13 @@ export const isFollower = (authUser, user) => {
 export const getCurrentUser = (users, username) => {
   return users?.find((_user) => _user.username === username);
 };
+
+/**
+ * @description Find if the postId is exists in bookmarked posts
+ * @param {Array} bookmarked
+ * @param {String} postId
+ * @returns {Boolean} true/false if post is bookmarked or not
+ */
+export const isBookmarked = (bookmarked, postId) => {
+  return bookmarked?.some((post) => post._id === postId);
+};

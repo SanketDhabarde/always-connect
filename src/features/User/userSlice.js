@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 const initialState = {
   allUser: [],
   userProfile: {},
+  bookmarkedPosts: [],
   userProfileLoading: false,
   userProfileError: null,
 };
@@ -95,6 +96,62 @@ export const unFollowUser = createAsyncThunk(
   }
 );
 
+export const getBookMarkedPosts = createAsyncThunk(
+  "user/getBookMarkedPosts",
+  async (_, { rejectWithValue }) => {
+    try {
+      const { data } = await axios(`/api/users/bookmark`, {
+        headers: {
+          authorization: TOKEN,
+        },
+      });
+      return data?.bookmarks;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const addPostToBookmarks = createAsyncThunk(
+  "user/addPostToBookmarks",
+  async ({ postId }, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post(
+        `/api/users/bookmark/${postId}`,
+        {},
+        {
+          headers: {
+            authorization: TOKEN,
+          },
+        }
+      );
+      return data?.bookmarks;
+    } catch (error) {
+      return rejectWithValue(error.respose.data);
+    }
+  }
+);
+
+export const removePostFromBookmarks = createAsyncThunk(
+  "user/removePostFromBookmarks",
+  async ({ postId }, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post(
+        `/api/users/remove-bookmark/${postId}`,
+        {},
+        {
+          headers: {
+            authorization: TOKEN,
+          },
+        }
+      );
+      return data?.bookmarks;
+    } catch (error) {
+      return rejectWithValue(error.respose.data);
+    }
+  }
+);
+
 export const userSlice = createSlice({
   name: "user",
   initialState,
@@ -155,6 +212,24 @@ export const userSlice = createSlice({
     },
     [unFollowUser.rejected]: (state, { payload }) => {
       state.userProfileError = payload;
+    },
+    [getBookMarkedPosts.fulfilled]: (state, { payload }) => {
+      state.bookmarkedPosts = payload;
+    },
+    [getBookMarkedPosts.rejected]: (_, { payload }) => {
+      console.log(payload);
+    },
+    [addPostToBookmarks.fulfilled]: (state, { payload }) => {
+      state.bookmarkedPosts = payload;
+    },
+    [addPostToBookmarks.rejected]: (_, { payload }) => {
+      console.log(payload);
+    },
+    [removePostFromBookmarks.fulfilled]: (state, { payload }) => {
+      state.bookmarkedPosts = payload;
+    },
+    [removePostFromBookmarks.rejected]: (_, { payload }) => {
+      console.log(payload);
     },
   },
 });
