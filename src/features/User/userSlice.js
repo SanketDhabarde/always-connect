@@ -10,7 +10,6 @@ const initialState = {
   userProfileError: null,
 };
 
-const TOKEN = localStorage.getItem("token");
 
 export const getAllUser = createAsyncThunk(
   "user/getAllUser",
@@ -45,7 +44,7 @@ export const editUserProfile = createAsyncThunk(
         { userData },
         {
           headers: {
-            authorization: TOKEN,
+            authorization: localStorage.getItem("token"),
           },
         }
       );
@@ -65,7 +64,7 @@ export const followUser = createAsyncThunk(
         {},
         {
           headers: {
-            authorization: TOKEN,
+            authorization: localStorage.getItem("token"),
           },
         }
       );
@@ -85,7 +84,7 @@ export const unFollowUser = createAsyncThunk(
         {},
         {
           headers: {
-            authorization: TOKEN,
+            authorization: localStorage.getItem("token"),
           },
         }
       );
@@ -102,7 +101,7 @@ export const getBookMarkedPosts = createAsyncThunk(
     try {
       const { data } = await axios(`/api/users/bookmark`, {
         headers: {
-          authorization: TOKEN,
+          authorization: localStorage.getItem("token"),
         },
       });
       return data?.bookmarks;
@@ -121,7 +120,7 @@ export const addPostToBookmarks = createAsyncThunk(
         {},
         {
           headers: {
-            authorization: TOKEN,
+            authorization: localStorage.getItem("token"),
           },
         }
       );
@@ -141,7 +140,7 @@ export const removePostFromBookmarks = createAsyncThunk(
         {},
         {
           headers: {
-            authorization: TOKEN,
+            authorization: localStorage.getItem("token"),
           },
         }
       );

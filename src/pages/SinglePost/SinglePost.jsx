@@ -21,7 +21,6 @@ function SinglePost() {
     (async () => {
       try {
         const { data } = await axios(`/api/posts/${postId}`);
-        console.log(data);
         setSelectedPost(data?.post);
       } catch (error) {
         console.log(error);
