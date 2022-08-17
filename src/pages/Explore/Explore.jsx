@@ -3,6 +3,7 @@ import { FollowCard, Sidebar, Spinner } from "../../components";
 import { getPosts, Post, usePostsSlice } from "../../features";
 import { useDispatch } from "react-redux";
 import { useTitle } from "../../hooks";
+import { sortPosts } from "../../features/Posts/utils";
 
 function Explore() {
   const { posts, postLoading } = usePostsSlice();
@@ -13,6 +14,8 @@ function Explore() {
     dispatch(getPosts());
   }, [dispatch]);
 
+  const sortedPosts = sortPosts(posts, "latest");
+
   return (
     <div className="container my-2">
       <Sidebar />
@@ -21,7 +24,7 @@ function Explore() {
           <Spinner />
         ) : (
           <div className="posts-listing">
-            {posts?.map((post) => (
+            {sortedPosts?.map((post) => (
               <Post post={post} key={post._id} />
             ))}
           </div>
