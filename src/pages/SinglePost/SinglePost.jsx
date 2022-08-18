@@ -33,7 +33,7 @@ function SinglePost() {
         console.log(error);
       }
     })();
-  }, [postId]);
+  }, [postId, dispatch]);
 
   const selectedPost = posts?.find((post) => post._id === postId);
 
