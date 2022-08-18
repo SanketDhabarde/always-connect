@@ -289,6 +289,24 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
+    _id: "03dsdbc-62d0-408s-b585-4ad4b3ff9d5b",
+    content:
+      "The struggle you're in today is developing the strength you need for tomorrow.",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "SanketDhabarde1",
+    firstName: "Sanket",
+    lastName: "Dhabarde",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659091879/hr0edyse7v3z4f8mlw7k.jpg",
+    comments: [],
+    createdAt: new Date("August 18 2022 09:12:1"),
+    updatedAt: formatDate(),
+  },
+  {
     _id: "df250b20-3523-43a1-ad98-563e44465124",
     content:
       "It’s not about whether it’s impossible or not, I’m doing it because I want to.",
@@ -331,6 +349,301 @@ export const posts = [
       },
     ],
     createdAt: new Date("March 10 2022 08:06:17"),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "df250b20-3523-43120-ad98-563e44465124",
+    content:
+      "If successful and unsuccessful people share the same goals, then the goal cannot be what differentiates winners from losers.",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "johndoe",
+    firstName: "John",
+    lastName: "Doe",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
+    comments: [
+      {
+        _id: "c34c7dc7-968a-4d63-b583-667c4b3bf514",
+        username: "adarshbalika",
+        text: "Wow!",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+        profileImg:
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659105639/ktspc9duwa7ei3emgru8.jpg",
+        createdAt: new Date("August 15 2022 08:06:17"),
+        updatedAt: formatDate(),
+      },
+    ],
+    createdAt: new Date("August 15 2022 08:06:17"),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "df250b20-3523-43120-ad98-563ekse465124",
+    content:
+      "Programming in React can feel like magic, but once you learn how the magic works, you become a wizard. 🧙🏼‍♂️",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "johndoe",
+    firstName: "John",
+    lastName: "Doe",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
+    comments: [],
+    createdAt: new Date("July 13 2022 08:06:17"),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "df250sad20-3523-43120-ad98-563ekse465124",
+    content: " मन के हारे, हारे। मन के जिते, जिते।",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "johndoe",
+    firstName: "John",
+    lastName: "Doe",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
+    comments: [],
+    createdAt: new Date("June 15 2022 08:06:17"),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "df250b20-35jkw3-43120-ad98-56se465124",
+    content: "Life is tough, but so are you! If you never try, you never know",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "johndoe",
+    firstName: "John",
+    lastName: "Doe",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
+    comments: [],
+    createdAt: new Date("June 19 2022 08:06:17"),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "df250b20-35sdsw3-43120-ad98-56se465124",
+    content:
+      "Never let the fear of striking out keep you from playing the game, Keep calm and carry on.",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "johndoe",
+    firstName: "John",
+    lastName: "Doe",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
+    comments: [],
+    createdAt: new Date("June 2 2022 08:06:17"),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "df250b20-35sdsw3-43120-ad98-5dk0se465124",
+    content:
+      " Life will never be perfect. It will never have everything you want. As a software engineer, you should know that a system will always have trade-offs. You need to decide what trade-offs you can live with and what are you optimizing your life for. -Tanay Pratap",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "johndoe",
+    firstName: "John",
+    lastName: "Doe",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
+    comments: [],
+    createdAt: new Date("June 10 2022 08:06:17"),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "dfsw020b20-35sdsw3-43120-ad98-5dk0se465124",
+    content: `Only the disciplined ones in life are free. If you are undisciplined, you are a slave to your moods and your passions.- Eliud Kipchoge`,
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "johndoe",
+    firstName: "John",
+    lastName: "Doe",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
+    comments: [],
+    createdAt: new Date("January 4 2022 08:06:17"),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "dfsw020b20-35sdsw3-43120-ad98-e465124",
+    content: `"Discipline" will take you to places where "motivation" cannot!`,
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "johndoe",
+    firstName: "John",
+    lastName: "Doe",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
+    comments: [],
+    createdAt: new Date("June 22 2022 08:06:17"),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "dfsw020b20-35s3-43120-ad98-e465124",
+    content: `Dare to dream, they might just come true someday.`,
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "johndoe",
+    firstName: "John",
+    lastName: "Doe",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
+    comments: [],
+    createdAt: new Date("August 3 2022 08:06:17"),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "dfsw020b20-35s3-4asd0-ad98-e465124",
+    content: `Consistency is the key to success!
+    Motivation won’t stay long. Discipline will!`,
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "johndoe",
+    firstName: "John",
+    lastName: "Doe",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
+    comments: [],
+    createdAt: new Date("August 13 2022 08:06:17"),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "df0b20-35s3-4asd0-ad98-e465124",
+    content: `It is our choices that show what we truly are, far more than our abilities.`,
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "johndoe",
+    firstName: "John",
+    lastName: "Doe",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
+    comments: [],
+    createdAt: new Date("July 30 2022 08:06:17"),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "df0b20-35s3-4fjds0-ad98-e465124",
+    content: `Today is hard, tomorrow will be worse, but the day after tomorrow will be sunshine.`,
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "johndoe",
+    firstName: "John",
+    lastName: "Doe",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
+    comments: [],
+    createdAt: new Date("July 1 2022 08:06:17"),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "df0b20-35s3-4fjds0-ad98-easkj124",
+    content: `The illiterate of the 21st century, will not be those who cannot read and write, but those who cannot learn, unlearn and relearn.`,
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "johndoe",
+    firstName: "John",
+    lastName: "Doe",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
+    comments: [],
+    createdAt: new Date("June 3 2022 08:06:17"),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "df0b20-35s3-4fjds0-skjd234-j124",
+    content: ` “There is freedom waiting for you, 
+    On the breezes of the sky,
+    And you ask "What if I fall?"
+    Oh, but my darling,
+    What if you fly?”― Erin Hanson`,
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "johndoe",
+    firstName: "John",
+    lastName: "Doe",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
+    comments: [],
+    createdAt: new Date("June 15 2022 08:06:17"),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "dsadd0-309-b20-35s3-4fjds0-skjd234-j124",
+    content: `You'll never be good enough to do something until you do it. So just do it!`,
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "johndoe",
+    firstName: "John",
+    lastName: "Doe",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
+    comments: [],
+    createdAt: new Date("July 19 2022 08:06:17"),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "dsadd0-309-b20-35s3-4sjd34-j124",
+    content: `"Give a man a fish and you feed him for a day; teach a man to fish and you feed him for a lifetime”`,
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "johndoe",
+    firstName: "John",
+    lastName: "Doe",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
+    comments: [],
+    createdAt: new Date("August 17 2022 08:06:17"),
     updatedAt: formatDate(),
   },
 ];

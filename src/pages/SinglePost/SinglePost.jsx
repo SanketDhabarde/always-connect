@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { FollowCard, Sidebar } from "../../components";
+import { FollowCard, Sidebar, Spinner } from "../../components";
 import { addComment, Comment, Post } from "../../features";
 import { useTitle } from "../../hooks";
 import "./SinglePost.css";
@@ -12,6 +12,7 @@ function SinglePost() {
   const [comment, setComment] = useState("");
   const [commentLength, setCommentLength] = useState(200);
   const [selectedPost, setSelectedPost] = useState(null);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const { postId } = useParams();
   const navigate = useNavigate();
@@ -19,10 +20,13 @@ function SinglePost() {
 
   useEffect(() => {
     (async () => {
+      setLoading(true);
       try {
         const { data } = await axios(`/api/posts/${postId}`);
         setSelectedPost(data?.post);
+        setLoading(false);
       } catch (error) {
+        setLoading(false);
         console.log(error);
       }
     })();
@@ -57,57 +61,63 @@ function SinglePost() {
   return (
     <div className="container my-2">
       <Sidebar />
-      <div className="card container-card single-post px-3">
-        <div className="go-back">
-          <button
-            className="btn btn-outline-primary btn-sm"
-            onClick={backPageHandler}
-          >
-            <i className="fas fa-backward"></i> Go back
-          </button>
+      {loading ? (
+        <div className="card container-card single-post px-3">
+          <Spinner />
         </div>
-        {selectedPost && <Post post={selectedPost} />}
-        <div className="comments-container">
-          <form onSubmit={postCommentHandler}>
-            <div className="comment-input">
-              <input
-                type="text"
-                value={comment}
-                onChange={commentHandler}
-                className="input-textbox p-1 w-100"
-                placeholder="Enter your reply"
+      ) : (
+        <div className="card container-card single-post px-3">
+          <div className="go-back">
+            <button
+              className="btn btn-outline-primary btn-sm"
+              onClick={backPageHandler}
+            >
+              <i className="fas fa-backward"></i> Go back
+            </button>
+          </div>
+          {selectedPost && <Post post={selectedPost} />}
+          <div className="comments-container">
+            <form onSubmit={postCommentHandler}>
+              <div className="comment-input">
+                <input
+                  type="text"
+                  value={comment}
+                  onChange={commentHandler}
+                  className="input-textbox p-1 w-100"
+                  placeholder="Enter your reply"
+                />
+              </div>
+              <div className="comment-submit px-1 my-1">
+                <span
+                  className={`post-txt-count${
+                    commentLength < 0
+                      ? "-error"
+                      : commentLength < 10 && "-warning"
+                  }`}
+                >
+                  {commentLength}
+                </span>
+                <button
+                  className="btn btn-primary btn-sm"
+                  type="submit"
+                  disabled={comment === "" || comment.length > 200}
+                >
+                  Reply
+                </button>
+              </div>
+            </form>
+          </div>
+          <div className="comments-listing my-2">
+            {comments?.map((comment) => (
+              <Comment
+                comment={comment}
+                key={comment._id}
+                postId={selectedPost._id}
               />
-            </div>
-            <div className="comment-submit px-1 my-1">
-              <span
-                className={`post-txt-count${
-                  commentLength < 0
-                    ? "-error"
-                    : commentLength < 10 && "-warning"
-                }`}
-              >
-                {commentLength}
-              </span>
-              <button
-                className="btn btn-primary btn-sm"
-                type="submit"
-                disabled={comment === "" || comment.length > 200}
-              >
-                Reply
-              </button>
-            </div>
-          </form>
+            ))}
+          </div>
         </div>
-        <div className="comments-listing my-2">
-          {comments?.map((comment) => (
-            <Comment
-              comment={comment}
-              key={comment._id}
-              postId={selectedPost._id}
-            />
-          ))}
-        </div>
-      </div>
+      )}
       <FollowCard />
     </div>
   );

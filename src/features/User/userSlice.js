@@ -6,10 +6,10 @@ const initialState = {
   allUser: [],
   userProfile: {},
   bookmarkedPosts: [],
+  bookmarkedPostsLoading: false,
   userProfileLoading: false,
   userProfileError: null,
 };
-
 
 export const getAllUser = createAsyncThunk(
   "user/getAllUser",
@@ -212,11 +212,16 @@ export const userSlice = createSlice({
     [unFollowUser.rejected]: (state, { payload }) => {
       state.userProfileError = payload;
     },
+    [getBookMarkedPosts.pending]: (state) => {
+      state.bookmarkedPostsLoading = true;
+    },
     [getBookMarkedPosts.fulfilled]: (state, { payload }) => {
       state.bookmarkedPosts = payload;
+      state.bookmarkedPostsLoading = false;
     },
-    [getBookMarkedPosts.rejected]: (_, { payload }) => {
+    [getBookMarkedPosts.rejected]: (state, { payload }) => {
       console.log(payload);
+      state.bookmarkedPostsLoading = false;
     },
     [addPostToBookmarks.fulfilled]: (state, { payload }) => {
       state.bookmarkedPosts = payload;
