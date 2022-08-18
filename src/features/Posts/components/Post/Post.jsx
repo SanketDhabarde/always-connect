@@ -133,8 +133,8 @@ function Post({ post }) {
             </div>
           )}
         </div>
-        <Link to={`/posts/${_id}`} className="post-content my-2 btn-link">
-          <p>{content}</p>
+        <Link to={`/posts/${_id}`} className="post-content btn-link">
+          <p className="mb-2">{content}</p>
         </Link>
         {postImage && (
           <div className="post-image my-1">

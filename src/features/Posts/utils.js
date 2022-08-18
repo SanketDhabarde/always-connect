@@ -6,7 +6,7 @@
 export const getDate = (date) => {
   let newDate = new Date(date);
   newDate = String(newDate).split(" ");
-  return `${newDate[1]} ${newDate[2]}, ${newDate[3]}`;
+  return `${newDate[1]} ${newDate[2]}`;
 };
 
 /**
