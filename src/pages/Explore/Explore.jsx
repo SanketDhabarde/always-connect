@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { FollowCard, Sidebar, Spinner } from "../../components";
+import { FollowCard, MobileSidebar, Sidebar, Spinner } from "../../components";
 import { getPosts, Post, usePostsSlice } from "../../features";
 import { useDispatch } from "react-redux";
 import { useTitle } from "../../hooks";
@@ -31,6 +31,7 @@ function Explore() {
         )}
       </div>
       <FollowCard />
+      <MobileSidebar/>
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { FollowCard, Sidebar, Spinner } from "../../components";
+import { FollowCard, MobileSidebar, Sidebar, Spinner } from "../../components";
 import {
   addComment,
   Comment,
@@ -124,6 +124,7 @@ function SinglePost() {
         </div>
       )}
       <FollowCard />
+      <MobileSidebar />
     </div>
   );
 }

@@ -307,6 +307,24 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
+    _id: "23894aksjdhc-62d0-408s-b585-4ad4b3ff9d5b",
+    content:
+      "You can do it - and if you struggle that's even better: it means that you're learning more",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "SanketDhabarde1",
+    firstName: "Sanket",
+    lastName: "Dhabarde",
+    profileImg:
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659091879/hr0edyse7v3z4f8mlw7k.jpg",
+    comments: [],
+    createdAt: new Date("August 19 2022 09:12:1"),
+    updatedAt: formatDate(),
+  },
+  {
     _id: "df250b20-3523-43a1-ad98-563e44465124",
     content:
       "It’s not about whether it’s impossible or not, I’m doing it because I want to.",

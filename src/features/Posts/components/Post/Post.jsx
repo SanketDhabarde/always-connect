@@ -88,7 +88,7 @@ function Post({ post }) {
       </div>
       <div className="post-card-right">
         <div className="post-header">
-          <div className="user-name">
+          <div className="user-name my-1">
             <h4>{`${firstName} ${lastName}`}</h4>{" "}
             <small className="text-gray">
               @{username} - {getDate(createdAt)}
