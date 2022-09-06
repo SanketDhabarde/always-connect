@@ -21,7 +21,7 @@ header {
   }
 
   header {
-    height: auto;
+    height: 4rem;
   }
 
   .header-brand > a {
