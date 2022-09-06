@@ -15,6 +15,6 @@
 
 @media screen and (max-width: 32.5em) {
   .container-card {
-    height: calc(85vh - 50px);
+    height: calc(80vh - 50px);
   }
 }
