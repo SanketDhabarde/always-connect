@@ -15,4 +15,16 @@ header {
   .new-post-btn-icon {
     display: block;
   }
+
+  .nav-right {
+    gap: 0.5rem;
+  }
+
+  header {
+    height: auto;
+  }
+
+  .header-brand > a {
+    font-size: 1.8rem;
+  }
 }

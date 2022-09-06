@@ -9,3 +9,9 @@
 .edit-modal {
   width: 30rem;
 }
+
+@media screen and (max-width: 32.5rem) {
+  .modal {
+    width: 100%;
+  }
+}
