@@ -5,7 +5,7 @@
  * @returns {Boolean} if user is follower or not
  */
 export const isFollower = (authUser, user) => {
-  return user.followers?.some((user) => user._id === authUser._id);
+  return user.followers?.some((user) => user?._id === authUser?._id);
 };
 
 /**
