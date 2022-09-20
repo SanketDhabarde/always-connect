@@ -8,3 +8,4 @@ export { default as Input } from "./Input/Input";
 export { default as Modal } from "./Modal/Modal";
 export { default as User } from "./User/User";
 export { default as Spinner } from "./Spinner/Spinner";
+export { default as MobileSidebar } from "./MobileSidebar/MobileSidebar";

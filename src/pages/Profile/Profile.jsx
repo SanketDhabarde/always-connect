@@ -2,7 +2,13 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { FollowCard, Modal, Sidebar, Spinner } from "../../components";
+import {
+  FollowCard,
+  MobileSidebar,
+  Modal,
+  Sidebar,
+  Spinner,
+} from "../../components";
 import UsersList from "../../components/UsersList/UsersList";
 import {
   EditProfile,
@@ -202,6 +208,7 @@ function Profile() {
           <EditProfile userProfile={user} toggleModal={toggleEditModal} />
         </Modal>
       )}
+      <MobileSidebar />
     </div>
   );
 }

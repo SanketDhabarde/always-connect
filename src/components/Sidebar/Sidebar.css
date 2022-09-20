@@ -23,3 +23,9 @@
   height: 55vh;
   border: 1px solid var(--secondary-color);
 }
+
+@media screen and (max-width: 62.5em) {
+  .sidebar-container {
+    display: none;
+  }
+}

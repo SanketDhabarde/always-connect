@@ -1,5 +1,5 @@
 import React from "react";
-import { FollowCard, Sidebar, Spinner } from "../../components";
+import { FollowCard, MobileSidebar, Sidebar, Spinner } from "../../components";
 import { useDispatch } from "react-redux";
 import { getBookMarkedPosts, Post, useUserSlice } from "../../features";
 import { useTitle } from "../../hooks";
@@ -35,6 +35,7 @@ function Bookmark() {
         )}
       </div>
       <FollowCard />
+      <MobileSidebar />
     </div>
   );
 }

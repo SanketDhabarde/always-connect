@@ -155,7 +155,6 @@ function EditProfile({ userProfile, toggleModal }) {
                 inputChangeHandler("profileLink", event)
               }
               placeholder="Enter your profile url"
-              required={true}
             />
           </div>
           <div className="form-group my-2">

@@ -64,11 +64,11 @@ export const users = [
     following: [
       {
         _id: "c30517bf-c371-4629-9379-e7c91eab9050",
-        firstName: "Dan",
-        lastName: "Abramov",
-        username: "dan_abramov",
+        firstName: "Rachel",
+        lastName: "Vila",
+        username: "rachel_vila",
         profileImg:
-          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659703122/zlbflx2ceqhhdcsq6m3d.jpg",
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1662789116/racaavh0wmgyhcuzopip.jpg",
       },
     ],
     bookmarks: [],
@@ -77,12 +77,12 @@ export const users = [
   },
   {
     _id: "c30517bf-c371-4629-9379-e7c91eab9050",
-    firstName: "Dan",
-    lastName: "Abramov",
-    username: "dan_abramov",
+    firstName: "Rachel",
+    lastName: "Vila",
+    username: "rachel_vila",
     profileImg:
-      "https://res.cloudinary.com/dphfdaqls/image/upload/v1659703122/zlbflx2ceqhhdcsq6m3d.jpg",
-    password: "danabromov123",
+      "https://res.cloudinary.com/dphfdaqls/image/upload/v1662789116/racaavh0wmgyhcuzopip.jpg",
+    password: "rachelV123",
     profileLink: "https://overreacted.io/",
     profileBanner:
       "https://res.cloudinary.com/dphfdaqls/image/upload/v1659158279/xixyo07shtqhfuocbuac.webp",
@@ -162,11 +162,11 @@ export const users = [
     following: [
       {
         _id: "c30517bf-c371-4629-9379-e7c91eab9050",
-        firstName: "Dan",
-        lastName: "Abramov",
-        username: "dan_abramov",
+        firstName: "Rachel",
+        lastName: "Vila",
+        username: "rachel_vila",
         profileImg:
-          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659703122/zlbflx2ceqhhdcsq6m3d.jpg",
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1662789116/racaavh0wmgyhcuzopip.jpg",
       },
       {
         _id: "b293462c-1cff-45c3-917d-3bef86885900",
@@ -175,6 +175,14 @@ export const users = [
         lastName: "Luffy",
         profileImg:
           "https://res.cloudinary.com/dphfdaqls/image/upload/v1659708461/gdsypz2hgecgvq8cibvq.jpg",
+      },
+      {
+        _id: "057c0b1e-84d1-44e3-b35a-382799476db1",
+        firstName: "John",
+        lastName: "Doe",
+        username: "johndoe",
+        profileImg:
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659092168/h0mqs3wbiqm5wqmdpa9i.jpg",
       },
     ],
     createdAt: formatDate(),

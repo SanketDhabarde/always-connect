@@ -6,3 +6,25 @@
 header {
   background-color: var(--header-bg);
 }
+
+.new-post-btn-icon {
+  display: none;
+}
+
+@media screen and (max-width: 62.5em) {
+  .new-post-btn-icon {
+    display: block;
+  }
+
+  .nav-right {
+    gap: 0.5rem;
+  }
+
+  header {
+    height: 4rem;
+  }
+
+  .header-brand > a {
+    font-size: 1.8rem;
+  }
+}

@@ -1,0 +1,16 @@
+.mobile-sidebar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-bg);
+  display: none;
+  width: 100%;
+  justify-content: space-between;
+  border-top: 1px solid var(--secondary-color);
+}
+
+@media screen and (max-width: 62.5em) {
+  .mobile-sidebar {
+    display: flex;
+  }
+}
