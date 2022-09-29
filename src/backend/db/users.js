@@ -16,7 +16,16 @@ export const users = [
     profileBanner:
       "https://res.cloudinary.com/dphfdaqls/image/upload/v1659158279/xixyo07shtqhfuocbuac.webp",
     bio: "People usually treat me as random user. But I am exists",
-    followers: [],
+    followers: [
+      {
+        _id: "2bb62a88-501f-4dab-80e7-cdde72684cf0",
+        firstName: "Sanket",
+        lastName: "Dhabarde",
+        username: "SanketDhabarde1",
+        profileImg:
+          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659091879/hr0edyse7v3z4f8mlw7k.jpg",
+      },
+    ],
     bookmarks: [],
     following: [
       {
@@ -89,14 +98,6 @@ export const users = [
     bio: "I don't know anything else",
     followers: [
       {
-        _id: "2bb62a88-501f-4dab-80e7-cdde72684cf0",
-        firstName: "Sanket",
-        lastName: "Dhabarde",
-        username: "SanketDhabarde1",
-        profileImg:
-          "https://res.cloudinary.com/dphfdaqls/image/upload/v1659091879/hr0edyse7v3z4f8mlw7k.jpg",
-      },
-      {
         _id: "c34c7dc7-968a-4d63-b583-667c4b3bf514",
         firstName: "Adarsh",
         lastName: "Balika",
@@ -160,14 +161,6 @@ export const users = [
     ],
     bookmarks: [],
     following: [
-      {
-        _id: "c30517bf-c371-4629-9379-e7c91eab9050",
-        firstName: "Rachel",
-        lastName: "Vila",
-        username: "rachel_vila",
-        profileImg:
-          "https://res.cloudinary.com/dphfdaqls/image/upload/v1662789116/racaavh0wmgyhcuzopip.jpg",
-      },
       {
         _id: "b293462c-1cff-45c3-917d-3bef86885900",
         username: "one_piece",

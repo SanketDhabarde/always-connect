@@ -3,8 +3,16 @@
   align-items: flex-start;
   justify-content: center;
   gap: 2em;
+  height: 85vh;
+  overflow-y: scroll;
 }
 
 .img-round {
   aspect-ratio: 1/1;
+}
+
+@media screen and (max-width: 32.5em) {
+  .container {
+    height: calc(85vh - 60px);
+  }
 }

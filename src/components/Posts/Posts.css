@@ -1,7 +1,5 @@
 .container-card {
   width: 37rem;
-  height: 85vh;
-  overflow-y: scroll;
 }
 
 .container-card.card {
@@ -11,10 +9,4 @@
 .post-filters {
   display: flex;
   justify-content: space-between;
-}
-
-@media screen and (max-width: 32.5em) {
-  .container-card {
-    height: calc(80vh - 50px);
-  }
 }

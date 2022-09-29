@@ -57,6 +57,7 @@ input[type="file"] {
 .emoji-picker > aside.emoji-picker-react {
   position: absolute;
   top: 100%;
+  z-index: 1;
 }
 
 .post-image {
