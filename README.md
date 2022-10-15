@@ -46,7 +46,7 @@
 ## 🤯 How to run app locally
 ### 1. Clone the app
 ```cmd
-git clone https://github.com/SanketDhabarde/always-social.git
+git clone https://github.com/SanketDhabarde/always-connect.git
 ```
 ### 2. Install the dependencies in your root folder where you cloned the app
 ```cmd
